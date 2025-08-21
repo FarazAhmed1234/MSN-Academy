@@ -20,6 +20,19 @@ import team3 from "../assets/3Image.png";
 import team4 from "../assets/4Image.png";
 import team5 from "../assets/5Image.png";
 import team6 from "../assets/6Image.png";
+import uiimage from "../assets/ui.webp";
+import Webimage from "../assets/web.jpg";
+import Appimage from "../assets/mobile.jpg";
+import Fizza from "../assets/Fizza.png";
+import furqanteam from "../assets/furqanteam.png";
+import Bissam from "../assets/Bissam.png";
+import Shahmir from "../assets/Shahmir.png";
+ import abdul from "../assets/abdul.png";
+import Faseeh from "../assets/Faseeh.png";
+
+ 
+
+
 import { Link } from "react-router-dom";
 
 import team7 from "../assets/7Image.png";
@@ -30,85 +43,104 @@ const HomePage = () => {
   const observerRef = useRef(null);
 
   useEffect(() => {
-    // Initialize scroll animations with improved Intersection Observer
-    const observerOptions = {
-      threshold: 0.15,
-      rootMargin: "0px 0px -100px 0px"
-    };
+  const isMobile = window.matchMedia('(max-width: 768px)').matches;
+  const supportsIO = 'IntersectionObserver' in window;
 
-    observerRef.current = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        const animationType = entry.target.getAttribute('data-animation') || 'fade-in';
+  const options = isMobile
+    ? { root: null, threshold: 0.05, rootMargin: '0px 0px -10% 0px' }
+    : { root: null, threshold: 0.15, rootMargin: '0px 0px -100px 0px' };
 
-        if (entry.isIntersecting) {
-          // Add animation class when element enters viewport
-          entry.target.classList.add(animationType);
-          entry.target.style.opacity = "1";
-        } else {
-          // Remove animation class when element leaves viewport
-          // This allows the animation to trigger again when scrolled back into view
-          entry.target.classList.remove(animationType);
-          entry.target.style.opacity = "0";
+  const elements = Array.from(document.querySelectorAll('[data-animation]'));
 
-          // Reset transform properties for slide animations
-          if (animationType.includes('slide')) {
-            if (animationType.includes('left')) {
-              entry.target.style.transform = "translateX(-50px)";
-            } else if (animationType.includes('right')) {
-              entry.target.style.transform = "translateX(50px)";
-            }
-          }
+  const setInitialState = (el) => {
+    const type = el.getAttribute('data-animation') || 'fade-in';
+    const delay = el.getAttribute('data-animation-delay') || '0s';
+    const duration = el.getAttribute('data-animation-duration') || (isMobile ? '0.5s' : '0.8s');
 
-          // Reset transform for zoom animations
-          if (animationType.includes('zoom')) {
-            entry.target.style.transform = "scale(0.9)";
-          }
+    el.style.opacity = '0';
+    el.style.transitionProperty = 'opacity, transform';
+    el.style.transitionTimingFunction = 'ease';
+    el.style.transitionDuration = duration;
+    el.style.transitionDelay = delay;
 
-          // Reset transform for fade up/down animations
-          if (animationType.includes('up')) {
-            entry.target.style.transform = "translateY(30px)";
-          } else if (animationType.includes('down')) {
-            entry.target.style.transform = "translateY(-30px)";
-          }
-        }
+    if (type.includes('slide')) {
+      if (type.includes('left')) el.style.transform = 'translateX(-50px)';
+      else if (type.includes('right')) el.style.transform = 'translateX(50px)';
+    } else if (type.includes('zoom')) {
+      el.style.transform = 'scale(0.9)';
+    } else if (type.includes('up')) {
+      el.style.transform = 'translateY(30px)';
+    } else if (type.includes('down')) {
+      el.style.transform = 'translateY(-30px)';
+    }
+  };
+
+  const activate = (el) => {
+    const type = el.getAttribute('data-animation') || 'fade-in';
+    el.classList.add(type);
+    el.style.opacity = '1';
+  };
+
+  const reset = (el) => {
+    const type = el.getAttribute('data-animation') || 'fade-in';
+    el.classList.remove(type);
+    el.style.opacity = '0';
+
+    if (type.includes('slide')) {
+      if (type.includes('left')) el.style.transform = 'translateX(-50px)';
+      else if (type.includes('right')) el.style.transform = 'translateX(50px)';
+    } else if (type.includes('zoom')) {
+      el.style.transform = 'scale(0.9)';
+    } else if (type.includes('up')) {
+      el.style.transform = 'translateY(30px)';
+    } else if (type.includes('down')) {
+      el.style.transform = 'translateY(-30px)';
+    }
+  };
+
+  elements.forEach(setInitialState);
+
+  // Fallback if IO not supported
+  if (!supportsIO) {
+    const onScroll = () => {
+      elements.forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        const visible = rect.top < window.innerHeight * (isMobile ? 0.95 : 0.85) && rect.bottom > 0;
+        if (visible) activate(el);
       });
-    }, observerOptions);
-
-    // Observe all elements with the 'data-animation' attribute
-    document.querySelectorAll('[data-animation]').forEach(el => {
-      // Set initial state for all animated elements
-      const animationType = el.getAttribute('data-animation');
-      el.style.opacity = "0";
-      el.style.transition = "opacity 0.5s ease, transform 0.8s ease";
-
-      if (animationType.includes('slide')) {
-        if (animationType.includes('left')) {
-          el.style.transform = "translateX(-50px)";
-        } else if (animationType.includes('right')) {
-          el.style.transform = "translateX(50px)";
-        }
-      } else if (animationType.includes('zoom')) {
-        el.style.transform = "scale(0.9)";
-      } else if (animationType.includes('up')) {
-        el.style.transform = "translateY(30px)";
-      } else if (animationType.includes('down')) {
-        el.style.transform = "translateY(-30px)";
-      }
-
-      observerRef.current.observe(el);
-    });
-
-    return () => {
-      if (observerRef.current) {
-        observerRef.current.disconnect();
-      }
     };
-  }, []);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      const el = entry.target;
+      const onceAttr = el.getAttribute('data-animation-once');
+      const once = onceAttr === 'false' ? false : true; // default true
+
+      if (entry.isIntersecting) {
+        activate(el);
+        if (isMobile && once) io.unobserve(el); // smoother on mobile
+      } else {
+        // Only reset on desktop or when explicitly repeatable
+        if (!isMobile || once === false) reset(el);
+      }
+    });
+  }, options);
+
+  // Ensure initial styles are applied before observing (avoids race on iOS)
+  requestAnimationFrame(() => elements.forEach((el) => io.observe(el)));
+
+  return () => io.disconnect();
+}, []);
 
   return (
     <>
       <Navbar1 />
 
+<section className="widthfull">
       {/* Hero Section */}
       <section className="hero" style={{ backgroundImage: `url(${bgImage})` }}>
         <div className="hero-overlay">
@@ -127,7 +159,7 @@ const HomePage = () => {
       <section className="about-hero">
         <div className="container">
           <div className="about-hero-content">
-            <div className="about-hero-text" data-animation="slide-in-left">
+            <div className="about-hero-text" data-animation="fade-in-down">
               <h1>EMPOWER YOUR FUTURE WITH MSN ACADEMY</h1>
               <p>
                 MSN Academy strives to be a leading nation-building institution,
@@ -142,7 +174,7 @@ const HomePage = () => {
               </p>
               <button className="btn-primary hover-lift">Learn More</button>
             </div>
-            <div className="about-hero-image" data-animation="slide-in-right">
+            <div className="about-hero-image" data-animation="fade-in-up">
               <img src={heroImage} alt="Students working together" />
             </div>
           </div>
@@ -160,7 +192,7 @@ const HomePage = () => {
           <div className="course-grid">
             <div className="course-card" data-animation="zoom-in" data-animation-delay="0.1s">
               <div className="course-image">
-                <img src={course} alt="UI/UX Design" />
+                <img src={uiimage} alt="UI/UX Design" />
               </div>
               <h3>UI/UX Design</h3>
               <p className="certificate">Professional Certificate</p>
@@ -180,7 +212,7 @@ const HomePage = () => {
 
             <div className="course-card" data-animation="zoom-in" data-animation-delay="0.2s">
               <div className="course-image">
-                <img src={course} alt="Web Development" />
+                <img src={Webimage} alt="Web Development" />
               </div>
               <h3>Web Development</h3>
               <p className="certificate">Professional Certificate</p>
@@ -200,7 +232,7 @@ const HomePage = () => {
 
             <div className="course-card" data-animation="zoom-in" data-animation-delay="0.3s">
               <div className="course-image">
-                <img src={course} alt="App Development" />
+                <img src={Appimage} alt="App Development" />
               </div>
               <h3>Mobile App Development</h3>
               <p className="certificate">Professional Certificate</p>
@@ -233,7 +265,7 @@ const HomePage = () => {
       <section className="leader">
         <div className="container">
           <div className="leader-content">
-            <div className="leader-text" data-animation="slide-in-left">
+            <div className="leader-text" data-animation="fade-in-down">
               <h2>Meet Muhammad Suleman: Visionary Leader of MSN Academy</h2>
               <p>
                 Muhammad Suleman, Founder & CEO of MSN Academy, leverages his expertise in data analysis and digital technologies to empower freelancers and developers in Pakistan. He enhanced his skills through a data analytics internship at Systems Limited.
@@ -249,7 +281,7 @@ const HomePage = () => {
                 </div>
               </div>
             </div>
-            <div className="leader-image" data-animation="slide-in-right">
+            <div className="leader-image" data-animation="fade-in-up">
               <img src={sulemanImage} alt="Muhammad Suleman" />
             </div>
           </div>
@@ -466,6 +498,226 @@ const HomePage = () => {
         </div>
       </section>
 
+
+
+
+<section className="team">
+        <div className="container">
+          <p className="team-subtitle" data-animation="fade-in">Our Team</p>
+          <h2 className="team-title" data-animation="fade-in" data-animation-delay="0.1s">Trainer Team</h2>
+
+          <div className="team-grid">
+            
+
+            <div className="profile-card" data-animation="zoom-in" data-animation-delay="0.2s">
+              <div className="profile-image">
+                <img src={furqanteam} alt="Muhammad Furqan" />
+              </div>
+              <div className="profile-content">
+                <h3 className="profile-name">Muhammad Furqan</h3>
+                <p className="profile-title">Full Stack Graphic Trainer</p>
+                <p className="profile-description">Trains learners in creative and technical graphic design skills</p>
+                <div className="social-links">
+                  <a href="https://www.linkedin.com" className="social-link hover-lift" target="_blank" rel="noreferrer">
+                    <FaLinkedin />
+                  </a>
+                  <a href="https://twitter.com" className="social-link hover-lift" target="_blank" rel="noreferrer">
+                    <FaXTwitter />
+                  </a>
+                  <a href="https://example.com" className="social-link hover-lift" target="_blank" rel="noreferrer">
+                    <FaGlobe />
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div className="profile-card" data-animation="zoom-in" data-animation-delay="0.3s">
+              <div className="profile-image">
+                <img src={Bissam} alt="Bissam Akbar" />
+              </div>
+              <div className="profile-content">
+                <h3 className="profile-name">Bissam Akbar</h3>
+                <p className="profile-title">Digital Marketing Trainer</p>
+                <p className="profile-description">Trains learners in strategies and tools for effective online marketing.</p>
+                <div className="social-links">
+                  <a href="https://www.linkedin.com" className="social-link hover-lift" target="_blank" rel="noreferrer">
+                    <FaLinkedin />
+                  </a>
+                  <a href="https://twitter.com" className="social-link hover-lift" target="_blank" rel="noreferrer">
+                    <FaXTwitter />
+                  </a>
+                  <a href="https://example.com" className="social-link hover-lift" target="_blank" rel="noreferrer">
+                    <FaGlobe />
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div className="profile-card" data-animation="zoom-in" data-animation-delay="0.4s">
+              <div className="profile-image">
+                <img src={Fizza} alt="Fizza Khokhar" />
+              </div>
+              <div className="profile-content">
+                <h3 className="profile-name">Fizza Khokhar</h3>
+                <p className="profile-title">Full Stack Developer | Frontend Trainer</p>
+                <p className="profile-description">Develops end-to-end web solutions and trains learners in frontend technologies.</p>
+                <div className="social-links">
+                  <a href="https://www.linkedin.com" className="social-link hover-lift" target="_blank" rel="noreferrer">
+                    <FaLinkedin />
+                  </a>
+                  <a href="https://twitter.com" className="social-link hover-lift" target="_blank" rel="noreferrer">
+                    <FaXTwitter />
+                  </a>
+                  <a href="https://example.com" className="social-link hover-lift" target="_blank" rel="noreferrer">
+                    <FaGlobe />
+                  </a>
+                </div>
+              </div>
+            </div>
+
+ <div className="profile-card" data-animation="zoom-in" data-animation-delay="0.7s">
+              <div className="profile-image">
+                <img src={team7} alt="Najm Ur Rehman" />
+              </div>
+              <div className="profile-content">
+                <h3 className="profile-name">Najm Ur Rehman</h3>
+                <p className="profile-title">Full Stack Developer | App Dev Trainer</p>
+                <p className="profile-description">Builds complete web solutions and trains learners in app development.</p>
+                <div className="social-links">
+                  <a href="https://www.linkedin.com" className="social-link hover-lift" target="_blank" rel="noreferrer">
+                    <FaLinkedin />
+                  </a>
+                  <a href="https://twitter.com" className="social-link hover-lift" target="_blank" rel="noreferrer">
+                    <FaXTwitter />
+                  </a>
+                  <a href="https://example.com" className="social-link hover-lift" target="_blank" rel="noreferrer">
+                    <FaGlobe />
+                  </a>
+                </div>
+              </div>
+              </div>
+
+              <div className="profile-card" data-animation="zoom-in" data-animation-delay="0.1s">
+              <div className="profile-image">
+                <img src={sulemanteam} alt="Muhammad Suleman" />
+              </div>
+              <div className="profile-content">
+                <h3 className="profile-name">Muhammad Suleman</h3>
+                <p className="profile-title">Data Analyst Trainer</p>
+                <p className="profile-description">Trains learners in data analysis, visualization, and interpretation for informed decision-making.</p>
+                <div className="social-links">
+                  <a href="https://www.linkedin.com" className="social-link hover-lift" target="_blank" rel="noreferrer">
+                    <FaLinkedin />
+                  </a>
+                  <a href="https://twitter.com" className="social-link hover-lift" target="_blank" rel="noreferrer">
+                    <FaXTwitter />
+                  </a>
+                  <a href="https://example.com" className="social-link hover-lift" target="_blank" rel="noreferrer">
+                    <FaGlobe />
+                  </a>
+                </div>
+              </div>
+            </div>
+
+
+            <div className="profile-card" data-animation="zoom-in" data-animation-delay="0.5s">
+              <div className="profile-image">
+                <img src={team5} alt="Daniyal Ahmed" />
+              </div>
+              <div className="profile-content">
+                <h3 className="profile-name">Daniyal Ahmed</h3>
+                <p className="profile-title">Frontend Trainer</p>
+                <p className="profile-description">Trains learners in designing and developing responsive, user-friendly web interfaces.</p>
+                <div className="social-links">
+                  <a href="https://www.linkedin.com" className="social-link hover-lift" target="_blank" rel="noreferrer">
+                    <FaLinkedin />
+                  </a>
+                  <a href="https://twitter.com" className="social-link hover-lift" target="_blank" rel="noreferrer">
+                    <FaXTwitter />
+                  </a>
+                  <a href="https://example.com" className="social-link hover-lift" target="_blank" rel="noreferrer">
+                    <FaGlobe />
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div className="profile-card" data-animation="zoom-in" data-animation-delay="0.6s">
+              <div className="profile-image">
+                <img src={Shahmir} alt="Shahmir Sandhu" />
+              </div>
+              <div className="profile-content">
+                <h3 className="profile-name">Shahmir Sandhu</h3>
+                <p className="profile-title">MERN Backend Trainer</p>
+                <p className="profile-description">Trains learners in building and managing backend systems using the MERN stack.</p>
+                <div className="social-links">
+                  <a href="https://www.linkedin.com" className="social-link hover-lift" target="_blank" rel="noreferrer">
+                    <FaLinkedin />
+                  </a>
+                  <a href="https://twitter.com" className="social-link hover-lift" target="_blank" rel="noreferrer">
+                    <FaXTwitter />
+                  </a>
+                  <a href="https://example.com" className="social-link hover-lift" target="_blank" rel="noreferrer">
+                    <FaGlobe />
+                  </a>
+                </div>
+              </div>
+            </div>
+
+           
+
+           <div className="profile-card" data-animation="zoom-in" data-animation-delay="0.1s">
+              <div className="profile-image">
+                <img src={abdul} alt="Syed Abdul Wahab" />
+              </div>
+              <div className="profile-content">
+                <h3 className="profile-name">Syed Abdul Wahab</h3>
+                <p className="profile-title">Competitive Programming Trainer</p>
+                <p className="profile-description">Trains learners in problem-solving, algorithms, and coding skills for programming competitions.</p>
+                <div className="social-links">
+                  <a href="https://www.linkedin.com" className="social-link hover-lift" target="_blank" rel="noreferrer">
+                    <FaLinkedin />
+                  </a>
+                  <a href="https://twitter.com" className="social-link hover-lift" target="_blank" rel="noreferrer">
+                    <FaXTwitter />
+                  </a>
+                  <a href="https://example.com" className="social-link hover-lift" target="_blank" rel="noreferrer">
+                    <FaGlobe />
+                  </a>
+                </div>
+              </div>
+            </div>
+
+
+            <div className="profile-card" data-animation="zoom-in" data-animation-delay="0.1s">
+              <div className="profile-image">
+                <img src={Faseeh} alt="Faseeh Siddique" />
+              </div>
+              <div className="profile-content">
+                <h3 className="profile-name">Faseeh Siddique</h3>
+                <p className="profile-title">Python Programming Trainer</p>
+                <p className="profile-description">Trains learners in Python programming and applications.</p>
+                <div className="social-links">
+                  <a href="https://www.linkedin.com" className="social-link hover-lift" target="_blank" rel="noreferrer">
+                    <FaLinkedin />
+                  </a>
+                  <a href="https://twitter.com" className="social-link hover-lift" target="_blank" rel="noreferrer">
+                    <FaXTwitter />
+                  </a>
+                  <a href="https://example.com" className="social-link hover-lift" target="_blank" rel="noreferrer">
+                    <FaGlobe />
+                  </a>
+                </div>
+              </div>
+            </div> 
+
+          </div>
+        </div>
+      </section>
+
+
+
+
       {/* CTA Section */}
       <section className="cta-section">
         <div className="cta-overlay" data-animation="fade-in">
@@ -480,7 +732,7 @@ const HomePage = () => {
           </div>
         </div>
       </section>
-
+</section>
       <Footer />
     </>
   );

@@ -215,7 +215,7 @@ input.error, textarea.error {
 }
 
 .submit-btn:hover {
-  background-color: #3a80d2;
+  background-color: red;
   transform: translateY(-3px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
@@ -226,7 +226,7 @@ input.error, textarea.error {
 }
 
 .submit-btn.submitting {
-  background-color: #3a80d2;
+  background-color: red;
   cursor: not-allowed;
 }
 

@@ -1,4 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import Navbar1 from "../components/Navbar1";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -11,12 +13,16 @@ import img2 from "../assets/boy1.jpg";
 import img3 from "../assets/boy2.jpg";
 import heroImage from "../assets/girl.jpg";
 import handImage from "../assets/hand.avif";
-import Image from "../assets/new.avif";
+
+
+
+
 import "./CoursesPage.css";
 
 const CoursesPage = () => {
   const [selectedCourse, setSelectedCourse] = useState(null);
   const observerRef = useRef(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Initialize scroll animations with improved Intersection Observer
@@ -146,7 +152,7 @@ const CoursesPage = () => {
                 style={{ transitionDelay: `${index * 0.1}s` }}
               >
                 <div className="course-image">
-                  <img src={Image} alt={course.name} />
+                  <img src={course.image} alt={course.name} />
                 </div>
                 <h3>{course.name}</h3>
                 <p className="certificate">Professional Certificate</p>
@@ -178,7 +184,7 @@ const CoursesPage = () => {
           practical application.
         </p>
         <div className="cards">
-          <div className="card" data-animation="slide-left">
+          <div className="card" data-animation="fade-in">
             <div className="card-image"><img src={img1} alt="Learning" /></div>
             <h3>Interactive Learning for Real–World Skills</h3>
             <p>Includes hands-on projects to reinforce learning.</p>
@@ -188,7 +194,7 @@ const CoursesPage = () => {
             <h3>Personal Mentorship to Guide Your Journey</h3>
             <p>Our experienced mentors provide personalized guidance throughout your learning experience.</p>
           </div>
-          <div className="card" data-animation="slide-right">
+          <div className="card" data-animation="fade-up">
             <div className="card-image"><img src={img3} alt="Community" /></div>
             <h3>Join a Community of Aspiring Professionals</h3>
             <p>Collaborate with peers and industry experts to grow together.</p>
@@ -200,12 +206,12 @@ const CoursesPage = () => {
       <section className="about-hero" data-animation="fade-in">
         <div className="container">
           <div className="about-hero-content">
-            <div className="about-hero-text" data-animation="slide-left">
+            <div className="about-hero-text" data-animation="fade-in">
               <h1>Unlock Your Potential with Personalized Mentorship</h1>
               <p>At MSN Academy, we believe in the power of mentorship and hands-on projects.</p>
               <button className="btn-primary hover-lift">Learn More</button>
             </div>
-            <div className="about-hero-image" data-animation="slide-right">
+            <div className="about-hero-image" data-animation="fade-up">
               <img src={heroImage} alt="Students working" />
             </div>
           </div>
@@ -216,13 +222,13 @@ const CoursesPage = () => {
       <section className="about-hero" data-animation="fade-in">
         <div className="container">
           <div className="about-hero-content">
-            <div className="about-hero-text" data-animation="slide-left">
+            <div className="about-hero-text" data-animation="fade-in">
               <h1>Ready to Start Your <br />Journey?</h1>
               <p>Enroll in our courses today and unlock your potential in the digital world!</p>
               <button className="btn-primary hover-lift" style={{ backgroundColor: "#021533", color: "white", marginRight: "20px" }}>Enroll</button>
-              <button className="btn-primary hover-lift" style={{ backgroundColor: "white", color: "black", border: "1px solid black" }}>Contact</button>
+              <button className="btn-primary hover-lift" style={{ backgroundColor: "white", color: "black", border: "1px solid black" }} onClick={() => navigate("/contact")}>Contact</button>
             </div>
-            <div className="about-hero-image" data-animation="slide-right">
+            <div className="about-hero-image" data-animation="fade-up">
               <img src={handImage} alt="Students working" />
             </div>
           </div>

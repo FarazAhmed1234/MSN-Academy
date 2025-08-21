@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import { Star, ChevronUp, ChevronDown } from "lucide-react";
 import "./CourseDetailsPage.css";
 import ScrollToTop from "./ScrollToTop";
 
-const CourseDetailsPage = ({ course, onBack }) => {
+const CourseDetailsPage = ({ course }) => {
   const [openSection, setOpenSection] = useState({
     overview: true,
     outcomes: true,
@@ -12,7 +13,9 @@ const CourseDetailsPage = ({ course, onBack }) => {
     fee: true,
     instructor: true,
   });
-  
+    const navigate = useNavigate();
+
+
   const observerRef = useRef(null);
 
   useEffect(() => {
@@ -25,12 +28,12 @@ const CourseDetailsPage = ({ course, onBack }) => {
     observerRef.current = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         const animationType = entry.target.getAttribute('data-animation') || 'fade-in';
-        
+
         if (entry.isIntersecting) {
           // Add animation class when element enters viewport
           entry.target.classList.add(animationType);
           entry.target.style.opacity = "1";
-          
+
           // Apply final transform based on animation type
           if (animationType.includes('slide')) {
             entry.target.style.transform = "translateX(0)";
@@ -43,7 +46,7 @@ const CourseDetailsPage = ({ course, onBack }) => {
           // Remove animation class when element leaves viewport
           entry.target.classList.remove(animationType);
           entry.target.style.opacity = "0";
-          
+
           // Reset transform properties for slide animations
           if (animationType.includes('slide')) {
             if (animationType.includes('left')) {
@@ -52,12 +55,12 @@ const CourseDetailsPage = ({ course, onBack }) => {
               entry.target.style.transform = "translateX(50px)";
             }
           }
-          
+
           // Reset transform for zoom animations
           if (animationType.includes('zoom')) {
             entry.target.style.transform = "scale(0.9)";
           }
-          
+
           // Reset transform for fade up/down animations
           if (animationType.includes('up')) {
             entry.target.style.transform = "translateY(30px)";
@@ -74,7 +77,7 @@ const CourseDetailsPage = ({ course, onBack }) => {
       const animationType = el.getAttribute('data-animation');
       el.style.opacity = "0";
       el.style.transition = "opacity 0.5s ease, transform 0.8s ease";
-      
+
       if (animationType.includes('slide')) {
         if (animationType.includes('left')) {
           el.style.transform = "translateX(-50px)";
@@ -88,7 +91,7 @@ const CourseDetailsPage = ({ course, onBack }) => {
       } else if (animationType.includes('down')) {
         el.style.transform = "translateY(-30px)";
       }
-      
+
       observerRef.current.observe(el);
     });
 
@@ -110,7 +113,7 @@ const CourseDetailsPage = ({ course, onBack }) => {
         <div className="course-container">
           {/* Left Side */}
           <div className="course-info">
-            <p className="breadcrumb" onClick={onBack} style={{cursor:"pointer"}} data-animation="fade-up">
+            <p className="breadcrumb"  onClick={() => navigate(0)} style={{ cursor: "pointer" }} data-animation="fade-up">
               Courses &gt; <strong>{course.name}</strong>
             </p>
             <h1 data-animation="fade-up">{course.name}</h1>
@@ -138,7 +141,7 @@ const CourseDetailsPage = ({ course, onBack }) => {
           </div>
 
           {/* Right Side */}
-          <div className="course-card1" data-animation="slide-right">
+          <div className="course-card1" data-animation="fade-up">
             <div className="course-image">
               <img src={course.image} alt={course.name} style={{ width: "300px", height: "180px" }} />
               <button className="play-button">▶</button>
@@ -153,14 +156,14 @@ const CourseDetailsPage = ({ course, onBack }) => {
 
         {/* Accordion */}
         <main className="details-content container">
-          <h1 style={{marginLeft: "94px", marginBottom: "10px"}} data-animation="fade-up">
+          <h1 style={{ marginLeft: "94px", marginBottom: "10px" }} data-animation="fade-up">
             More information
           </h1>
-          <hr style={{marginLeft: "94px", marginBottom: "10px", marginRight: "100px"}} data-animation="fade-up"/>
+          <hr style={{ marginLeft: "94px", marginBottom: "10px", marginRight: "100px" }} data-animation="fade-up" />
           <br />
 
           {["overview", "outcomes", "audience", "duration", "fee", "instructor"].map((key, index) => (
-            <div className="info-item" key={key} data-animation="fade-up" style={{transitionDelay: `${index * 0.1}s`}}>
+            <div className="info-item" key={key} data-animation="fade-up" style={{ transitionDelay: `${index * 0.1}s` }}>
               <div className="info-header" onClick={() => toggleSection(key)}>
                 <h2>{key.charAt(0).toUpperCase() + key.slice(1)}</h2>
                 <span className="toggle-icon">{openSection[key] ? <ChevronUp size={20} /> : <ChevronDown size={20} />}</span>
@@ -184,4 +187,4 @@ const CourseDetailsPage = ({ course, onBack }) => {
   );
 };
 
-export default CourseDetailsPage;
+export default CourseDetailsPage; 

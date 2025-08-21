@@ -819,6 +819,10 @@ html {
     .root{
     width: fit-content;
   }
+
+  .widthfull{
+
+  }
   .hero-content h1 {
     font-size: 1.8rem;
   }

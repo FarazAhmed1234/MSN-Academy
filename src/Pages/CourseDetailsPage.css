@@ -561,9 +561,6 @@ hr {
     gap: 0;
   }
 
-  .course-card1 {
-    width: 370px;
-  }
 }
 
 .info-content p {
@@ -579,10 +576,7 @@ hr {
   }
 
 
-  .course-card1 {
-    width: 327px;
-    margin-left: 24px;
-  }
+
 
   .info-item {
     flex-direction: column;
@@ -598,6 +592,10 @@ hr {
     padding: 1.2rem;
   }
 
+  .course-card1 {
+    margin-left: auto;
+  }
+
   .info-content h2 {
     font-size: 1.2rem;
   }
@@ -608,9 +606,9 @@ hr {
     padding: 1.5rem 0;
   }
 
+
   .course-card1 {
-    width: 327px;
-    margin-left: -4px;
+    margin-left: 20px;
   }
 
   .details-header h1 {
