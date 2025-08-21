@@ -1,0 +1,386 @@
+/* CertificatePage.css */
+.page-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Verification Container */
+.verification-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 40px 0;
+  font-family: Arial, sans-serif;
+  background: #fff;
+  gap: 30px;
+}
+
+.verification-left {
+  flex: 1;
+  min-width: 300px;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  margin-top: 20px;
+  color: #0d1b3d;
+}
+
+.subtitle {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.role-buttons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.role-btn {
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  background: #f5f5f5;
+  cursor: pointer;
+  border-radius: 12px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.role-btn.active {
+  background: #0d1b3d;
+  color: white;
+}
+
+.input-box {
+  margin-bottom: 20px;
+}
+
+.input-box label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.input-box input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #bbb;
+  border-radius: 5px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.verify-btn {
+  background: #0d1b3d;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  width: 100%;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.verify-btn:hover {
+  background: #142850;
+}
+
+.instant-text {
+  margin-top: 15px;
+  font-size: 14px;
+  text-align: center;
+  color: #444;
+}
+
+.details-box {
+  margin-top: 25px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  background: #fafafa;
+  border-radius: 8px;
+}
+
+.details-box h4 {
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #0d1b3d;
+}
+
+.details-box p {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.6;
+}
+
+.verification-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-width: 300px;
+}
+
+.verification-right img {
+  width: 100%;
+  max-width: 500px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Steps Container */
+.steps-container {
+  text-align: center;
+  padding: 60px 0;
+  font-family: Arial, sans-serif;
+  background: #fff;
+}
+
+.steps-title {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #0d1b3d;
+}
+
+.steps-subtitle {
+  font-size: 16px;
+  color: #555;
+  max-width: 600px;
+  margin: 0 auto 50px;
+  line-height: 1.5;
+}
+
+.steps-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.step-box {
+  max-width: 250px;
+  text-align: center;
+  flex: 1;
+  min-width: 200px;
+}
+
+.step-icon-container {
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+.step-icon {
+  font-size: 32px;
+  color: #999;
+}
+
+.step-icon-container.active .step-icon {
+  color: #0d1b3d;
+}
+
+.step-box h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #0d1b3d;
+}
+
+.step-box p {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.5;
+}
+
+.steps-verify-btn {
+  background: #0d1b3d;
+  color: white;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin-top: 20px;
+}
+
+.steps-verify-btn:hover {
+  background: #142850;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .page-container {
+    padding: 0 15px;
+  }
+  
+  .verification-container {
+    padding: 20px 0;
+    flex-direction: column;
+  }
+  
+  .title {
+    font-size: 24px;
+    margin-top: 10px;
+  }
+  
+  .verification-right {
+    order: -1;
+    margin-bottom: 20px;
+  }
+  
+  .verification-right img {
+    max-width: 100%;
+  }
+  
+  .steps-container {
+    padding: 40px 0;
+  }
+  
+  .steps-title {
+    font-size: 24px;
+  }
+  
+  .steps-row {
+    gap: 20px;
+  }
+  
+  .step-box {
+    min-width: 100%;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .role-buttons {
+    flex-direction: column;
+  }
+  
+  .role-btn {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  .steps-title {
+    font-size: 22px;
+            margin-top: 127px;
+
+  }
+  
+  .steps-subtitle {
+    font-size: 14px;
+    margin-bottom: 30px;
+  }
+}
+
+
+/* General hidden state */
+.slide-in-left,
+.slide-in-right,
+.fade-in-up,
+.zoom-in,
+.bounce-in,
+.rotate-in {
+  opacity: 0;
+  transition: all 0.8s ease;
+}
+
+/* Left Slide */
+.slide-in-left.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+.slide-in-left {
+  transform: translateX(-80px);
+}
+
+/* Right Slide */
+.slide-in-right.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+.slide-in-right {
+  transform: translateX(80px);
+}
+
+/* Fade Up */
+.fade-in-up.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+.fade-in-up {
+  transform: translateY(60px);
+}
+
+/* Zoom In */
+.zoom-in {
+  transform: scale(0.8);
+}
+.zoom-in.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Bounce In */
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.bounce-in.show {
+  opacity: 1;
+  animation: bounceIn 0.8s ease;
+}
+
+/* Rotate In */
+.rotate-in {
+  transform: rotate(-15deg) scale(0.8);
+}
+.rotate-in.show {
+  opacity: 1;
+  transform: rotate(0) scale(1);
+  transition: all 0.9s ease;
+}
+
+/* Staggered animation for steps */
+.steps-row .step-box {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.steps-container.show .steps-row .step-box {
+  opacity: 1;
+  transform: translateY(0);
+}
+.steps-container.show .steps-row .step-box:nth-child(1) {
+  transition-delay: 0.2s;
+}
+.steps-container.show .steps-row .step-box:nth-child(2) {
+  transition-delay: 0.4s;
+}
+.steps-container.show .steps-row .step-box:nth-child(3) {
+  transition-delay: 0.6s;
+}
