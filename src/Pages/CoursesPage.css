@@ -131,6 +131,8 @@ body {
   background-size: cover;
   background-position: center;
   position: relative;
+      margin-top: -78px;
+
   color: white;
 }
 

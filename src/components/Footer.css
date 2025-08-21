@@ -11,7 +11,6 @@
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
 }
 
 .footer-column h3 {
@@ -685,7 +684,7 @@
   }
 
   .footer-column h3{
-        margin-left: -269px;
+        margin-left: -197px;
   }
 
   .footer-column1 h3{

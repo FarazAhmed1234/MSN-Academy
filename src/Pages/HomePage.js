@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
-import Navbar from "../components/Navbar";
+import Navbar1 from "../components/Navbar1";
 import Footer from "../components/Footer";
 import { FaLinkedin, FaGithub, FaGlobe, FaStar } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
@@ -107,7 +107,7 @@ const HomePage = () => {
 
   return (
     <>
-      <Navbar />
+      <Navbar1 />
 
       {/* Hero Section */}
       <section className="hero" style={{ backgroundImage: `url(${bgImage})` }}>

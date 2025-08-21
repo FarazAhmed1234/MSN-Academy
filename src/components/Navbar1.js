@@ -1,32 +1,24 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";  // ✅ Import NavLink
-import "./Navbar.css";
-import { useNavigate } from "react-router-dom";
-
-
-
+import { NavLink, useNavigate } from "react-router-dom";
+import "./Navbar1.css";
 import logo from "../assets/MSN_Logo.png";
 
 const Navbar = () => {
   const navigate = useNavigate();
-
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   return (
-    <nav className="navbar">
+    <nav className="msn-navbar">
       {/* Logo */}
-      <div className="logo">
+      <div className="msn-logo">
         <img src={logo} alt="MSN Academy Logo" />
       </div>
 
       {/* Hamburger menu */}
       <div
-        className={`hamburger ${isMenuOpen ? "active" : ""}`}
+        className={`msn-hamburger ${isMenuOpen ? "active" : ""}`}
         onClick={toggleMenu}
       >
         <span></span>
@@ -35,12 +27,12 @@ const Navbar = () => {
       </div>
 
       {/* Navigation Links */}
-      <ul className={`nav-menu ${isMenuOpen ? "active" : ""}`}>
+      <ul className={`msn-nav-menu ${isMenuOpen ? "active" : ""}`}>
         <li>
           <NavLink
             to="/"
             end
-            className={({ isActive }) => (isActive ? "active-link" : "")}
+            className={({ isActive }) => (isActive ? "msn-active-link" : "")}
             onClick={() => setIsMenuOpen(false)}
           >
             Home
@@ -49,7 +41,7 @@ const Navbar = () => {
         <li>
           <NavLink
             to="/courses"
-            className={({ isActive }) => (isActive ? "active-link" : "")}
+            className={({ isActive }) => (isActive ? "msn-active-link" : "")}
             onClick={() => setIsMenuOpen(false)}
           >
             Courses
@@ -58,7 +50,7 @@ const Navbar = () => {
         <li>
           <NavLink
             to="/certificate"
-            className={({ isActive }) => (isActive ? "active-link" : "")}
+            className={({ isActive }) => (isActive ? "msn-active-link" : "")}
             onClick={() => setIsMenuOpen(false)}
           >
             Certificate
@@ -67,7 +59,7 @@ const Navbar = () => {
         <li>
           <NavLink
             to="/contact"
-            className={({ isActive }) => (isActive ? "active-link" : "")}
+            className={({ isActive }) => (isActive ? "msn-active-link" : "")}
             onClick={() => setIsMenuOpen(false)}
           >
             Contact Us
@@ -76,15 +68,23 @@ const Navbar = () => {
       </ul>
 
       {/* Desktop Buttons */}
-      <div className="nav-buttons">
-     <button className="join-btn" onClick={() => navigate("/courses")}>Join</button>
-        <button className="learn-btn" onClick={() => navigate("/")}>Learn</button>
+      <div className="msn-nav-buttons">
+        <button className="msn-join-btn" onClick={() => navigate("/courses")}>
+          Join
+        </button>
+        <button className="msn-learn-btn" onClick={() => navigate("/")}>
+          Learn
+        </button>
       </div>
 
       {/* Mobile Buttons */}
-      <div className={`nav-buttons-mobile ${isMenuOpen ? "show" : ""}`}>
-        <button className="join-btn" onClick={() => navigate("/courses")}>Join</button>
-        <button className="learn-btn" onClick={() => navigate("/")}>Learn</button>
+      <div className={`msn-nav-buttons-mobile ${isMenuOpen ? "show" : ""}`}>
+        <button className="msn-join-btn" onClick={() => navigate("/courses")}>
+          Join
+        </button>
+        <button className="msn-learn-btn" onClick={() => navigate("/")}>
+          Learn
+        </button>
       </div>
     </nav>
   );

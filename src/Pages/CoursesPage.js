@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import Navbar1 from "../components/Navbar1";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { FaStar } from "react-icons/fa";
@@ -114,7 +115,7 @@ const CoursesPage = () => {
 
   return (
     <>
-      <Navbar />
+      <Navbar1 />
 
       {/* Hero Section */}
       <section

@@ -816,6 +816,9 @@ html {
 }
 
 @media (max-width: 480px) {
+    .root{
+    width: fit-content;
+  }
   .hero-content h1 {
     font-size: 1.8rem;
   }

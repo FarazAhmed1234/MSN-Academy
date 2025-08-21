@@ -23,8 +23,13 @@ body {
 
 /* Animation Keyframes */
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes fadeInUp {
@@ -32,6 +37,7 @@ body {
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -43,6 +49,7 @@ body {
     opacity: 0;
     transform: translateY(-30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -54,6 +61,7 @@ body {
     opacity: 0;
     transform: translateX(-50px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -65,6 +73,7 @@ body {
     opacity: 0;
     transform: translateX(50px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -76,6 +85,7 @@ body {
     opacity: 0;
     transform: scale(0.9);
   }
+
   to {
     opacity: 1;
     transform: scale(1);
@@ -133,10 +143,10 @@ body {
 }
 
 .course-info h1 {
-    font-size: 33px;
-    margin-bottom: 10px;
-    margin-left: 24px;
-    font-weight: bolder;
+  font-size: 33px;
+  margin-bottom: 10px;
+  margin-left: 24px;
+  font-weight: bolder;
 }
 
 .subtitle {
@@ -167,7 +177,7 @@ body {
 }
 
 .includes-list li {
-    margin-bottom: 18px;
+  margin-bottom: 18px;
   font-size: 15px;
 }
 
@@ -196,7 +206,7 @@ body {
   border-radius: 50%;
   padding: 8px 12px;
   cursor: pointer;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
 .price {
@@ -231,15 +241,15 @@ body {
   border: none;
 }
 
-.course-card1{
-        background: #fff;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    text-align: left;
-    height: 363px;
-    transition: transform 0.3s ease;
-    margin-top: 26px;
+.course-card1 {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  height: 363px;
+  transition: transform 0.3s ease;
+  margin-top: 26px;
 
 }
 
@@ -300,9 +310,9 @@ body {
   min-width: 70px;
 }
 
-.info-header{
-      margin-left: 6px;
-    margin-bottom: -31px;
+.info-header {
+  margin-left: 6px;
+  margin-bottom: -31px;
 }
 
 .info-content {
@@ -311,7 +321,7 @@ body {
 
 .info-content h2 {
   font-size: 1.4rem;
-      margin-left: 33px;
+  margin-left: 33px;
   color: #2c3e50;
   margin-bottom: 0.8rem;
   font-weight: 600;
@@ -327,7 +337,7 @@ body {
 
 .course-info {
   flex: 2;
-      margin-top: 68px;
+  margin-top: 68px;
 }
 
 .course-card1 {
@@ -338,7 +348,7 @@ body {
   padding: 20px;
   text-align: center;
   height: 466px;
-    margin-bottom: 52px;
+  margin-bottom: 52px;
 }
 
 .breadcrumb {
@@ -492,9 +502,9 @@ h1 {
 }
 
 .info-header h2 {
- color: #2c3e50;
-    font-size: 32px;
-    margin-bottom: 29px;
+  color: #2c3e50;
+  font-size: 32px;
+  margin-bottom: 29px;
 }
 
 .toggle-icon {
@@ -524,34 +534,34 @@ hr {
   .course-container {
     flex-direction: column;
   }
-  
+
   .data-analyst-details {
     padding: 20px 15px;
   }
-  
+
   h1 {
     font-size: 24px;
     margin-left: 20px !important;
   }
-  
+
   .details-content {
     padding: 0 10px;
   }
-  
+
   .info-item {
     padding-left: 15px;
   }
-  
+
   .info-header h2 {
     font-size: 20px;
   }
-  
+
   .includes-list {
     flex-direction: column;
     gap: 0;
   }
-  
-  .course-card1{
+
+  .course-card1 {
     width: 370px;
   }
 }
@@ -568,46 +578,49 @@ hr {
     font-size: 1.8rem;
   }
 
-  .course-card1{
-    width: 370px;
+
+  .course-card1 {
+    width: 327px;
+    margin-left: 24px;
   }
-  
+
   .info-item {
     flex-direction: column;
   }
-  
+
   .info-icon {
     padding: 1rem;
     min-width: auto;
     font-size: 1.5rem;
   }
-  
+
   .info-content {
     padding: 1.2rem;
   }
-  
+
   .info-content h2 {
     font-size: 1.2rem;
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 420px) {
   .details-header {
     padding: 1.5rem 0;
   }
-  
-  .course-card1{
-    width: 370px;
+
+  .course-card1 {
+    width: 327px;
+    margin-left: -4px;
   }
-  
+
   .details-header h1 {
     font-size: 1.5rem;
   }
-  
+
   .info-content {
     padding: 1rem;
   }
-  
+
   .info-content p {
     font-size: 0.95rem;
   }

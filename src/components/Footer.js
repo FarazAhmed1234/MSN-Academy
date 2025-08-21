@@ -68,11 +68,11 @@ const Footer = () => {
         <div className="footer-column" data-animation="slide-in-left">
           <h3>Quick Links</h3>
           <ul className="footer-links">
-            <li><a href="#" className="hover-effect">About Us</a></li>
-            <li><a href="#" className="hover-effect">Contact Us</a></li>
-            <li><a href="#" className="hover-effect">Testimonials</a></li>
-            <li><a href="#" className="hover-effect">Resources</a></li>
-            <li><a href="#" className="hover-effect">Blog Posts</a></li>
+            <li><a href="/" className="hover-effect">About Us</a></li>
+            <li><a href="/contact" className="hover-effect">Contact Us</a></li>
+            <li><a href="/" className="hover-effect">Testimonials</a></li>
+            <li><a href="/" className="hover-effect">Resources</a></li>
+            <li><a href="/" className="hover-effect">Blog Posts</a></li>
           </ul>
         </div>
 
@@ -119,11 +119,11 @@ const Footer = () => {
           </p>
 
           <div className="social-icons">
-            <a href="#" className="social-icon"><FaFacebook size={20} /></a>
+            <a href="https://www.facebook.com/people/MSN-Academy/61564445365771/?rdid=CshiN7SdrmJo4yCf&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F16cqKCuUgV%2F" className="social-icon"><FaFacebook size={20} /></a>
             <a href="#" className="social-icon"><FaXTwitter size={20} /></a>
-            <a href="#" className="social-icon"><FaInstagram size={20} /></a>
-            <a href="#" className="social-icon"><FaLinkedin size={20} /></a>
-            <a href="#" className="social-icon"><FaYoutube size={20} /></a>
+            <a href="https://www.instagram.com/msn_academytech/?igsh=YjFnbDRybDZuOWNo#" className="social-icon"><FaInstagram size={20} /></a>
+            <a href="https://www.linkedin.com/company/msn-academy269/posts/?feedView=all" className="social-icon"><FaLinkedin size={20} /></a>
+            <a href="https://www.youtube.com/@MSNAcademy-Officials" className="social-icon"><FaYoutube size={20} /></a>
           </div>
         </div>
       </div>
