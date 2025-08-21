@@ -143,7 +143,7 @@ const CourseDetailsPage = ({ course }) => {
           {/* Right Side */}
           <div className="course-card1" data-animation="fade-up">
             <div className="course-image">
-              <img src={course.image} alt={course.name} style={{ width: "300px", height: "180px" }} />
+              <img src={course.image} alt={course.name} style={{ width: "265px", height: "180px" }} />
               <button className="play-button">▶</button>
             </div>
             <p className="price">{course.price}</p>
