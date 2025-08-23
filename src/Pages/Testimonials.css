@@ -374,17 +374,20 @@
   font-weight: 700;
   color: #061733;
   text-align: center;
+      margin-top: 15px;
+
 }
 
 /* Inputs + textarea */
 .modal input,
 .modal textarea {
-  width: 100%;
+  width: 93%;
   margin-bottom: 1rem;
   padding: 0.9rem 1.2rem;
   border: 1px solid #ddd;
   border-radius: 12px;
   font-size: 1rem;
+  margin-left: 23px;
   font-family: inherit;
   outline: none;
   transition: border 0.3s ease, box-shadow 0.3s ease;
@@ -406,7 +409,8 @@
   display: flex;
   justify-content: flex-end;
   gap: 1rem;
-  margin-top: 1rem;
+margin-bottom: 17px;
+    margin-right: 21px;
 }
 
 .modal-actions button {
@@ -417,6 +421,7 @@
   font-size: 1rem;
   border-radius: 10px;
   cursor: pointer;
+
   transition: all 0.3s ease;
   font-weight: 600;
 }
