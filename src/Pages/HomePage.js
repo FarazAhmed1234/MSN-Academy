@@ -21,7 +21,7 @@ import team4 from "../assets/4Image.png";
 import team5 from "../assets/5Image.png";
 import team6 from "../assets/6Image.png";
 import uiimage from "../assets/ui.webp";
-import Webimage from "../assets/web.jpg";
+import frontendImg from "../assets/frontend.jpg";
 import Appimage from "../assets/mobile.jpg";
 import Fizza from "../assets/Fizza.png";
 import furqanteam from "../assets/furqanteam.png";
@@ -194,7 +194,7 @@ const HomePage = () => {
               <div className="course-image">
                 <img src={uiimage} alt="UI/UX Design" />
               </div>
-              <h3>UI/UX Design</h3>
+              <h3>Full Stack Graphic Designing with UI/UX</h3>
               <p className="certificate">Professional Certificate</p>
               <div className="rating">
                 <FaStar className="star" />
@@ -212,9 +212,9 @@ const HomePage = () => {
 
             <div className="course-card" data-animation="zoom-in" data-animation-delay="0.2s">
               <div className="course-image">
-                <img src={Webimage} alt="Web Development" />
+                <img src={frontendImg} alt="Web Development" />
               </div>
-              <h3>Web Development</h3>
+              <h3>Frontend Website Development</h3>
               <p className="certificate">Professional Certificate</p>
               <div className="rating">
                 <FaStar className="star" />
@@ -234,7 +234,7 @@ const HomePage = () => {
               <div className="course-image">
                 <img src={Appimage} alt="App Development" />
               </div>
-              <h3>Mobile App Development</h3>
+              <h3>Mobile Application Development with Flutter</h3>
               <p className="certificate">Professional Certificate</p>
               <div className="rating">
                 <FaStar className="star" />
