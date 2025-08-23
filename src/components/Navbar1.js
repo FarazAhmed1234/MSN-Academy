@@ -65,6 +65,18 @@ const Navbar = () => {
             Contact Us
           </NavLink>
         </li>
+
+        <li>
+          <NavLink
+            to="/feedback"
+            className={({ isActive }) => (isActive ? "msn-active-link" : "")}
+            onClick={() => setIsMenuOpen(false)}
+          >
+           Feedback
+          </NavLink>
+        </li>
+
+        
       </ul>
 
       {/* Desktop Buttons */}

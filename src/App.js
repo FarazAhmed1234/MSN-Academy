@@ -5,6 +5,7 @@ import HomePage from "./Pages/HomePage";
 import CoursesPage from "./Pages/CoursesPage";
 import CertificatePage from "./Pages/CertificatePage";
 import ContactPage from "./Pages/ContactPage";
+import Testimonials from "./Pages/Testimonials";
 
 function App() {
   return (
@@ -16,9 +17,12 @@ function App() {
         <Route path="/courses" element={<CoursesPage />} />
         <Route path="/certificate" element={<CertificatePage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/feedback" element={<Testimonials />} />
       </Routes>
     </Router>
   );
+
+  
 }
 
 export default App;

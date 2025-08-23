@@ -73,11 +73,22 @@ const Navbar = () => {
             Contact Us
           </NavLink>
         </li>
+
+
+        <li>
+          <NavLink
+            to="/feedback"
+            className={({ isActive }) => (isActive ? "active-link" : "")}
+            onClick={() => setIsMenuOpen(false)}
+          >
+            Feedback
+          </NavLink>
+        </li>
       </ul>
 
       {/* Desktop Buttons */}
       <div className="nav-buttons">
-     <button className="join-btn" onClick={() => navigate("/courses")}>Join</button>
+        <button className="join-btn" onClick={() => navigate("/courses")}>Join</button>
         <button className="learn-btn" onClick={() => navigate("/")}>Learn</button>
       </div>
 
