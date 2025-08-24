@@ -3,7 +3,9 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { FaCheckSquare, FaRegSquare } from "react-icons/fa";
 import "./CertificatePage.css";
-import sampleCert from "../assets/Faraz.png"; // fallback preview
+import studentCert from "../assets/Student.png"; // Student certificate preview
+import internCert from "../assets/Intern.png"; // Intern certificate preview
+import competitionCert from "../assets/competition.png"; // Competition certificate preview
 
 // 🔹 Scroll Animation Hook
 function useScrollAnimation() {
@@ -32,11 +34,31 @@ const CertificateVerification = () => {
   const [certificateData, setCertificateData] = useState(null);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [activeRole, setActiveRole] = useState("student");
 
   // Animation refs
   const [refLeft, leftVisible] = useScrollAnimation();
   const [refRight, rightVisible] = useScrollAnimation();
   const [refSteps, stepsVisible] = useScrollAnimation();
+
+  const handleRoleChange = (role) => {
+    setActiveRole(role);
+  };
+
+  // Function to get the appropriate preview image based on role
+  const getPreviewImage = () => {
+    // If we have certificate data, show the appropriate certificate based on role
+    switch(activeRole) {
+      case "student":
+        return studentCert;
+      case "intern":
+        return internCert;
+      case "competition":
+        return competitionCert;
+      default:
+        return studentCert;
+    }
+  };
 
   const handleVerify = async () => {
     setError("");
@@ -59,6 +81,10 @@ const CertificateVerification = () => {
 
       if (data && data.code) {
         setCertificateData(data);
+        // Update active role based on the fetched certificate data
+        if (data.role) {
+          setActiveRole(data.role.toLowerCase());
+        }
       } else {
         setError("❌ Certificate not found.");
       }
@@ -86,6 +112,33 @@ const CertificateVerification = () => {
               ID to access your certificate details.
             </p>
 
+            <div className="role-buttons">
+              <button
+                className={`role-btn ${
+                  activeRole === "student" ? "active" : ""
+                }`}
+                onClick={() => handleRoleChange("student")}
+              >
+                Student
+              </button>
+              <button
+                className={`role-btn ${
+                  activeRole === "intern" ? "active" : ""
+                }`}
+                onClick={() => handleRoleChange("intern")}
+              >
+                Intern
+              </button>
+              <button
+                className={`role-btn ${
+                  activeRole === "competition" ? "active" : ""
+                }`}
+                onClick={() => handleRoleChange("competition")}
+              >
+                Competition
+              </button>
+            </div>
+            
             {/* Input Box */}
             <div className="input-box">
               <label>Enter your Certificate ID</label>
@@ -122,31 +175,20 @@ const CertificateVerification = () => {
                 <p><strong>Course:</strong> {certificateData.course_title}</p>
                 <p><strong>Issued At:</strong> {certificateData.issued_at}</p>
               </div>
-
-
-
-
             )}
           </div>
-
-
 
           {/* Right Section */}
           <div
             ref={refRight}
             className={`verification-right rotate-in ${rightVisible ? "show" : ""}`}
           >
-            {certificateData ? (
-              <img
-                src={certificateData.certificate_url || sampleCert}
-                alt="Certificate Preview"
-              />
-            ) : (
-              <img src={sampleCert} alt="Certificate Preview" />
-            )}
+            <img
+              src={getPreviewImage()}
+              alt="Certificate Preview"
+            />
           </div>
         </div>
-
 
         {/* Steps Section */}
         <div
@@ -186,8 +228,12 @@ const CertificateVerification = () => {
             </div>
 
             <div className="step-box slide-in-right">
-              <div className="step-icon-container">
-                <FaRegSquare className="step-icon" />
+              <div className={`step-icon-container ${certificateData ? "active" : ""}`}>
+                {certificateData ? (
+                  <FaCheckSquare className="step-icon" />
+                ) : (
+                  <FaRegSquare className="step-icon" />
+                )}
               </div>
               <h3>See Your Certificate</h3>
               <p>Your details and preview will appear instantly.</p>
