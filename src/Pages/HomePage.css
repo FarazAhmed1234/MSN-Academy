@@ -237,8 +237,8 @@ body {
 }
 
 .btn-outline:hover {
-  background: var(--primary);
-  color: #fff;
+  background: white;
+  color: var(--primary);
 }
 
 .btn-secondary {
@@ -720,7 +720,7 @@ html {
   overflow: hidden;
 }
 
-.btn-primary:after, .btn-outline:after, .btn-secondary:after, .cta-btn:after {
+.btn-primary:after,  .btn-secondary:after, .cta-btn:after {
   content: '';
   position: absolute;
   top: 50%;

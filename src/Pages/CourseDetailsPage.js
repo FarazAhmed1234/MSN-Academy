@@ -6,15 +6,14 @@ import ScrollToTop from "./ScrollToTop";
 
 const CourseDetailsPage = ({ course }) => {
   const [openSection, setOpenSection] = useState({
-    overview: true,
-    outcomes: true,
-    audience: true,
-    duration: true,
-    fee: true,
-    instructor: true,
+    overview: false,
+    outcomes: false,
+    audience: false,
+    duration: false,
+    fee: false,
+    instructor: false,
   });
-    const navigate = useNavigate();
-
+  const navigate = useNavigate();
 
   const observerRef = useRef(null);
 
@@ -113,7 +112,7 @@ const CourseDetailsPage = ({ course }) => {
         <div className="course-container">
           {/* Left Side */}
           <div className="course-info">
-            <p className="breadcrumb"  onClick={() => navigate(0)} style={{ cursor: "pointer" }} data-animation="fade-up">
+            <p className="breadcrumb" onClick={() => navigate(-1)} style={{ cursor: "pointer" }} data-animation="fade-up">
               Courses &gt; <strong>{course.name}</strong>
             </p>
             <h1 data-animation="fade-up">{course.name}</h1>
@@ -143,7 +142,7 @@ const CourseDetailsPage = ({ course }) => {
           {/* Right Side */}
           <div className="course-card1" data-animation="fade-up">
             <div className="course-image">
-              <img src={course.image} alt={course.name} style={{ width: "265px", height: "180px" }} />
+              <img src={course.image} alt={course.name} style={{ height: "180px" }} />
               <button className="play-button">▶</button>
             </div>
             <p className="price">{course.price}</p>
@@ -168,11 +167,9 @@ const CourseDetailsPage = ({ course }) => {
                 <h2>{key.charAt(0).toUpperCase() + key.slice(1)}</h2>
                 <span className="toggle-icon">{openSection[key] ? <ChevronUp size={20} /> : <ChevronDown size={20} />}</span>
               </div>
-              {openSection[key] && (
-                <div className="info-content">
-                  <p>{course[key]}</p>
-                </div>
-              )}
+              <div className={`info-content ${openSection[key] ? 'open' : ''}`}>
+                <p>{course[key]}</p>
+              </div>
               <hr />
             </div>
           ))}
@@ -187,4 +184,5 @@ const CourseDetailsPage = ({ course }) => {
   );
 };
 
-export default CourseDetailsPage; 
+
+export default CourseDetailsPage;

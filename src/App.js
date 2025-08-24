@@ -10,7 +10,7 @@ import Testimonials from "./Pages/Testimonials";
 function App() {
   return (
     <Router>
-            <ScrollToTop />   {/* ✅ Add here */}
+            <ScrollToTop />   
 
       <Routes>
         <Route path="/" element={<HomePage />} />

@@ -11,8 +11,8 @@ import bgImage from "../assets/background22.png";
 import heroImage from "../assets/Future.jpg";
 import sulemanImage from "../assets/Suleman.png";
 import course from "../assets/new.avif";
-import chooseImage from "../assets/choose.png";
-import edgeImage from "../assets/edge.png";
+import chooseImage from "../assets/choose.webp";
+import edgeImage from "../assets/edge.jpg";
 import joinImage from "../assets/join.png";
 import sulemanteam from "../assets/sulemanImage.png";
 import rijateam from "../assets/rijaImage.png";
@@ -302,8 +302,8 @@ const HomePage = () => {
                 <p>Personal mentorship sets us apart from competitors.</p>
                 <a href="#" className="learn-link hover-underline">Learn </a>
               </div>
-              <div className="card-image">
-                <img src={chooseImage} alt="Why Choose MSN Academy" />
+              <div className="card-image" >
+                <img src={chooseImage} alt="Why Choose MSN Academy" style={{marginTop:"10px"}} />
               </div>
             </div>
 
