@@ -140,7 +140,7 @@ body {
 }
 
 .play-button:hover {
-  background: var(--accent);
+  background: red;
   color: white;
 }
 
@@ -184,7 +184,7 @@ body {
 }
 
 .btn.primary:hover {
-  background: var(--accent);
+  background: red;
 }
 
 .btn.secondary {
@@ -194,7 +194,7 @@ body {
 }
 
 .btn.secondary:hover {
-  background: var(--light);
+  background: red;
 }
 
 /* Details Content */
