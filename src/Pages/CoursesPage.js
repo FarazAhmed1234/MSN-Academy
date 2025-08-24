@@ -168,7 +168,8 @@ const CoursesPage = () => {
                   <button className="btn-outline hover-lift" onClick={() => setSelectedCourse(course)}>
                     Enroll Now
                   </button>
-                  <button className="btn-secondary hover-lift">Watch Demo</button>
+                  <button className="btn-secondary hover-lift"onClick={() => window.open("https://youtube.com/playlist?list=PLZbMaGH5VmjXJXvoMK4LHcZGq83pLAM1A&si=4D3rHMrbG0GIlmjc", "_blank")}>Watch demo</button>
+
                 </div>
               </div>
             ))}

@@ -23,7 +23,7 @@ const defaultReviews = [
   {
     id: 3,
     name: "Sara Fatima",
-    role: "Junior Developer",
+    role: "Interns",
     rating: 5,
     text: "Super clean explanations + responsive support on WhatsApp. Highly recommended!",
     date: "Jun 2025",
@@ -47,7 +47,7 @@ const defaultReviews = [
   {
     id: 6,
     name: "Bilal Siddiqui",
-    role: "Software Engineer",
+    role: "Interns",
     rating: 5,
     text: "The advanced concepts were explained clearly. The code reviews were particularly helpful for growth.",
     date: "Mar 2025",

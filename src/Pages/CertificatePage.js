@@ -3,9 +3,9 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { FaCheckSquare, FaRegSquare } from "react-icons/fa";
 import "./CertificatePage.css";
-import sampleCert from "../assets/Faraz.jpg"; // replace with your certificate image
+import sampleCert from "../assets/Faraz.png"; // fallback preview
 
-// ✅ Scroll Animation Hook
+// 🔹 Scroll Animation Hook
 function useScrollAnimation() {
   const ref = useRef(null);
   const [isVisible, setVisible] = useState(false);
@@ -13,15 +13,12 @@ function useScrollAnimation() {
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          setVisible(entry.isIntersecting);
-        });
+        entries.forEach((entry) => setVisible(entry.isIntersecting));
       },
       { threshold: 0.2 }
     );
 
     if (ref.current) observer.observe(ref.current);
-
     return () => {
       if (ref.current) observer.unobserve(ref.current);
     };
@@ -31,20 +28,44 @@ function useScrollAnimation() {
 }
 
 const CertificateVerification = () => {
-  const [activeRole, setActiveRole] = useState("student");
   const [certificateId, setCertificateId] = useState("");
+  const [certificateData, setCertificateData] = useState(null);
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   // Animation refs
   const [refLeft, leftVisible] = useScrollAnimation();
   const [refRight, rightVisible] = useScrollAnimation();
   const [refSteps, stepsVisible] = useScrollAnimation();
 
-  const handleRoleChange = (role) => {
-    setActiveRole(role);
-  };
+  const handleVerify = async () => {
+    setError("");
+    setCertificateData(null);
 
-  const handleVerify = () => {
-    console.log("Verifying certificate for:", activeRole, "ID:", certificateId);
+    if (!certificateId) {
+      setError("⚠️ Please enter your Certificate ID.");
+      return;
+    }
+
+    setLoading(true);
+    try {
+      const response = await fetch(
+        `https://msn-certificate-application.vercel.app/api/certificate/getbycode/${certificateId}`
+      );
+
+      if (!response.ok) throw new Error("Certificate not found");
+
+      const data = await response.json();
+
+      if (data && data.code) {
+        setCertificateData(data);
+      } else {
+        setError("❌ Certificate not found.");
+      }
+    } catch (err) {
+      setError("❌ Certificate not found.");
+    }
+    setLoading(false);
   };
 
   return (
@@ -61,29 +82,9 @@ const CertificateVerification = () => {
           >
             <h2 className="title">Certificate Verification</h2>
             <p className="subtitle">
-              Easily verify your certificate issued by MSN Academy. Just select
-              your role and enter your ID to access your certificate details.
+              Verify your certificate issued by MSN Academy. Enter your certificate
+              ID to access your certificate details.
             </p>
-
-            {/* Role Buttons */}
-            <div className="role-buttons">
-              <button
-                className={`role-btn ${
-                  activeRole === "student" ? "active" : ""
-                }`}
-                onClick={() => handleRoleChange("student")}
-              >
-                Student
-              </button>
-              <button
-                className={`role-btn ${
-                  activeRole === "intern" ? "active" : ""
-                }`}
-                onClick={() => handleRoleChange("intern")}
-              >
-                Intern
-              </button>
-            </div>
 
             {/* Input Box */}
             <div className="input-box">
@@ -97,31 +98,55 @@ const CertificateVerification = () => {
             </div>
 
             {/* Verify Button */}
-            <button className="verify-btn bounce" onClick={handleVerify}>
-              Verify Certificate
+            <button
+              className="verify-btn bounce"
+              onClick={handleVerify}
+              disabled={loading}
+            >
+              {loading ? "Verifying..." : "Verify Certificate"}
             </button>
 
             <p className="instant-text">Instant results available</p>
 
-            {/* Details Box */}
-            <div className="details-box flip-in">
-              <h4>Details</h4>
-              <p>
-                Your certificate will include your full name, course name or
-                intern department, completion date, and a unique certificate
-                number. You can also preview your certificate once verified.
-              </p>
-            </div>
+            {/* Error Message */}
+            {error && <p className="error-text">{error}</p>}
+
+            {/* Certificate Details */}
+            {certificateData && (
+              <div className="details-box flip-in">
+                <h4>✅ Certificate Details</h4>
+                <p><strong>MSN ID:</strong> {certificateData.msn_id}</p>
+                <p><strong>Role:</strong> {certificateData.role}</p>
+                <p><strong>Name:</strong> {certificateData.recipient_name}</p>
+                <p><strong>Code:</strong> {certificateData.code}</p>
+                <p><strong>Course:</strong> {certificateData.course_title}</p>
+                <p><strong>Issued At:</strong> {certificateData.issued_at}</p>
+              </div>
+
+
+
+
+            )}
           </div>
+
+
 
           {/* Right Section */}
           <div
             ref={refRight}
             className={`verification-right rotate-in ${rightVisible ? "show" : ""}`}
           >
-            <img src={sampleCert} alt="Certificate Preview" />
+            {certificateData ? (
+              <img
+                src={certificateData.certificate_url || sampleCert}
+                alt="Certificate Preview"
+              />
+            ) : (
+              <img src={sampleCert} alt="Certificate Preview" />
+            )}
           </div>
         </div>
+
 
         {/* Steps Section */}
         <div
@@ -130,27 +155,12 @@ const CertificateVerification = () => {
         >
           <h2 className="steps-title">Certificate Verification Made Simple</h2>
           <p className="steps-subtitle">
-            Easily verify your certificate from MSN Academy. Select your role
-            and enter your ID to access your credentials.
+            Enter your ID to verify your certificate instantly.
           </p>
 
           <div className="steps-row">
             <div className="step-box slide-in-left">
-              <div className={`step-icon-container ${activeRole ? "active" : ""}`}>
-                {activeRole ? (
-                  <FaCheckSquare className="step-icon" />
-                ) : (
-                  <FaRegSquare className="step-icon" />
-                )}
-              </div>
-              <h3>Choose Your Role</h3>
-              <p>Select either Student or Intern to proceed.</p>
-            </div>
-
-            <div className="step-box slide-in-up">
-              <div
-                className={`step-icon-container ${certificateId ? "active" : ""}`}
-              >
+              <div className={`step-icon-container ${certificateId ? "active" : ""}`}>
                 {certificateId ? (
                   <FaCheckSquare className="step-icon" />
                 ) : (
@@ -158,7 +168,21 @@ const CertificateVerification = () => {
                 )}
               </div>
               <h3>Enter Your ID</h3>
-              <p>Provide the relevant ID to verify your certificate.</p>
+              <p>Provide the correct ID to verify your certificate.</p>
+            </div>
+
+            <div className="step-box slide-in-up">
+              <div
+                className={`step-icon-container ${certificateData ? "active" : ""}`}
+              >
+                {certificateData ? (
+                  <FaCheckSquare className="step-icon" />
+                ) : (
+                  <FaRegSquare className="step-icon" />
+                )}
+              </div>
+              <h3>Verify</h3>
+              <p>Click the button to check your certificate details.</p>
             </div>
 
             <div className="step-box slide-in-right">
@@ -166,16 +190,17 @@ const CertificateVerification = () => {
                 <FaRegSquare className="step-icon" />
               </div>
               <h3>See Your Certificate</h3>
-              <p>Click the button below to verify your certificate.</p>
+              <p>Your details and preview will appear instantly.</p>
             </div>
           </div>
 
           <button
             className="steps-verify-btn pulse"
             onClick={handleVerify}
+            disabled={loading}
             style={{ marginBottom: "80px" }}
           >
-            Verify
+            {loading ? "Verifying..." : "Verify"}
           </button>
         </div>
       </div>

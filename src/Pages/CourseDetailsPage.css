@@ -125,18 +125,19 @@ body {
 }
 
 .play-button {
-  position: absolute;
-  top: 40%;
-  left: 45%;
-  transform: translate(-50%, -50%);
-  font-size: 30px;
-  border: none;
-  background: white;
-  border-radius: 50%;
-  padding: 8px 12px;
-  cursor: pointer;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-  transition: var(--transition);
+ 
+ position: absolute;
+    top: 40%;
+    left: 51%;
+    transform: translate(-44%, -50%);
+    font-size: 23px;
+    border: none;
+    background: white;
+    border-radius: 50%;
+    padding: 6px 12px;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    transition: var(--transition);
 }
 
 .play-button:hover {
