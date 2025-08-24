@@ -194,7 +194,8 @@ body {
 }
 
 .btn.secondary:hover {
-  background: red;
+  background: var(--light);
+  border: 1px solid red;
 }
 
 /* Details Content */
