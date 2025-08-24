@@ -73,8 +73,6 @@ body {
   border-radius: 6px;
   background: var(--light);
   margin-top: 20px;
-  width: 800px;
-  margin-left: 50px;
 }
 
 .includes-box h3 {
