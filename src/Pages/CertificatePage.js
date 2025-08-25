@@ -65,7 +65,7 @@ const CertificateVerification = () => {
     setCertificateData(null);
 
     if (!certificateId) {
-      setError("⚠️ Please enter your Certificate ID.");
+      setError("Please enter your Certificate ID.");
       return;
     }
 
