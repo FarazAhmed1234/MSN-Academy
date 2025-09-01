@@ -14,6 +14,9 @@
 .msn-navbar img {
   margin-left: 44px;
   max-height: 90px;
+  height: auto;
+  width: auto;
+  object-fit: contain;
 }
 
 .msn-navbar ul {
@@ -29,6 +32,7 @@
   font-weight: 500;
   transition: 0.3s;
 }
+
 .msn-navbar ul li a:hover {
   color: #e50914;
 }
@@ -44,6 +48,7 @@
   margin-right: 25px;
   gap: 10px;
 }
+
 .msn-navbar .msn-nav-buttons button {
   padding: 8px 18px;
   border-radius: 20px;
@@ -58,6 +63,7 @@
   color: #000;
   background: #fff;
 }
+
 .msn-navbar .msn-join-btn:hover {
   transform: scale(1.05);
 }
@@ -66,6 +72,7 @@
   background: #041531;
   color: #fff;
 }
+
 .msn-navbar .msn-learn-btn:hover {
   transform: scale(1.05);
 }
@@ -76,6 +83,7 @@
   flex-direction: column;
   cursor: pointer;
 }
+
 .msn-hamburger span {
   width: 25px;
   height: 3px;
@@ -88,6 +96,7 @@
 .msn-nav-menu {
   display: flex;
 }
+
 .msn-nav-buttons-mobile {
   display: none;
 }
@@ -98,12 +107,17 @@
     width: 92%;
     padding: 12px 30px;
   }
+
   .msn-navbar .msn-logo img {
-    height: 110px;
+    max-height: 100px;
+    /* slightly larger */
+    margin: 0;
   }
+
   .msn-navbar ul {
     gap: 20px;
   }
+
   .msn-navbar .msn-nav-buttons button {
     padding: 7px 16px;
     font-size: 13px;
@@ -115,9 +129,11 @@
     width: 90%;
     padding: 10px 20px;
   }
+
   .msn-navbar .msn-logo img {
-    height: 90px;
-    margin-top: 15px;
+    max-height: 110px;
+    margin: 0 auto;
+    display: block;
   }
 
   .msn-hamburger {
@@ -139,9 +155,11 @@
     padding-top: 80px;
     z-index: 999;
   }
+
   .msn-nav-menu.active {
     left: 0;
   }
+
   .msn-nav-menu li {
     margin: 25px 0;
   }
@@ -162,6 +180,7 @@
     gap: 15px;
     z-index: 1000;
   }
+
   .msn-nav-buttons-mobile button {
     padding: 10px 20px;
     border-radius: 20px;
@@ -176,13 +195,16 @@
   .msn-navbar {
     width: 100%;
     padding: 8px 15px;
-    margin-top: -11px;
+    margin-top: -5px;
+    justify-content: space-between;
   }
+
   .msn-navbar .msn-logo img {
-    height: 141px;
-        margin-top: 22px;
-        margin-left: 14px;
+           max-height: 135px;
+        display: block;
+        margin-top: 10px;
   }
+
   .msn-nav-menu {
     width: 80%;
   }
@@ -192,9 +214,11 @@
 .msn-hamburger.active span:nth-child(1) {
   transform: rotate(-45deg) translate(-5px, 6px);
 }
+
 .msn-hamburger.active span:nth-child(2) {
   opacity: 0;
 }
+
 .msn-hamburger.active span:nth-child(3) {
   transform: rotate(45deg) translate(-5px, -6px);
 }
