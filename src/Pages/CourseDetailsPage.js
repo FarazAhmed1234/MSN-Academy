@@ -146,7 +146,6 @@ const CourseDetailsPage = ({ course }) => {
               <button className="play-button" onClick={() => window.open("https://youtube.com/playlist?list=PLZbMaGH5VmjXJXvoMK4LHcZGq83pLAM1A&si=4D3rHMrbG0GIlmjc", "_blank")}>▶</button>
             </div>
             <p className="price">{course.price}</p>
-            <p className="rating"><Star className="star" /> 4.5 stars · 25 reviews</p>
             <button className="btn primary" onClick={() => window.open("https://forms.gle/c82S9HnVPQCKf1vE8", "_blank")}>Get started</button>
             
             <button className="btn secondary" onClick={() => window.open("https://youtube.com/playlist?list=PLZbMaGH5VmjXJXvoMK4LHcZGq83pLAM1A&si=4D3rHMrbG0GIlmjc", "_blank")}>Watch demo</button>

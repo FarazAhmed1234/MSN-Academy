@@ -195,14 +195,7 @@ const HomePage = () => {
                 </div>
                 <h3>Full Stack Graphic Designing with UI/UX</h3>
                 <p className="certificate">Professional Certificate</p>
-                <div className="rating">
-                  <FaStar className="star" />
-                  <FaStar className="star" />
-                  <FaStar className="star" />
-                  <FaStar className="star" />
-                  <FaStar className="star inactive" />
-                  <span>4.5 (7.2k)</span>
-                </div>
+                
                 <div className="card-buttons">
                   <button className="btn-outline hover-lift">Enroll Now</button>
                   <button
@@ -221,14 +214,7 @@ const HomePage = () => {
                 </div>
                 <h3>Frontend Website Development</h3>
                 <p className="certificate">Professional Certificate</p>
-                <div className="rating">
-                  <FaStar className="star" />
-                  <FaStar className="star" />
-                  <FaStar className="star" />
-                  <FaStar className="star" />
-                  <FaStar className="star inactive" />
-                  <span>4.5 (7.2k)</span>
-                </div>
+                
                 <div className="card-buttons">
                   <button className="btn-outline hover-lift">Enroll Now</button>
   <button
@@ -245,14 +231,7 @@ const HomePage = () => {
                 </div>
                 <h3>Mobile Application Development with Flutter</h3>
                 <p className="certificate">Professional Certificate</p>
-                <div className="rating">
-                  <FaStar className="star" />
-                  <FaStar className="star" />
-                  <FaStar className="star" />
-                  <FaStar className="star" />
-                  <FaStar className="star inactive" />
-                  <span>4.5 (7.2k)</span>
-                </div>
+                
                 <div className="card-buttons">
                   <button className="btn-outline hover-lift">Enroll Now</button>
   <button

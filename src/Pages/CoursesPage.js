@@ -156,14 +156,7 @@ const CoursesPage = () => {
                 </div>
                 <h3>{course.name}</h3>
                 <p className="certificate">Professional Certificate</p>
-                <div className="rating">
-                  <FaStar className="star" />
-                  <FaStar className="star" />
-                  <FaStar className="star" />
-                  <FaStar className="star" />
-                  <FaStar className="star inactive" />
-                  <span>4.5 (7.2k)</span>
-                </div>
+                
                 <div className="card-buttons">
                   <button className="btn-outline hover-lift" onClick={() => setSelectedCourse(course)}>
                     Enroll Now
