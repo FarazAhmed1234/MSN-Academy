@@ -141,7 +141,7 @@ const HomePage = () => {
 
       <section className="widthfull">
         {/* Hero Section */}
-        <section className="hero" style={{ backgroundImage: `url(${bgImage})` }}>
+        <section className="hero" style={{ backgroundImage: `url(${bgImage})`, height:"500px" }} >
           <div className="hero-overlay">
             <div className="hero-content">
               <h1 data-animation="fade-in-down" style={{ color: "white" }}>Empowering Pakistan's <br /> Freelancers & Developers</h1>

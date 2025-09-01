@@ -384,16 +384,15 @@ body {
   .hero-content {
     margin-left: 5%;
     text-align: center;
+    
   }
-  .hero-content h1 { font-size: 2.2rem; }
-  .hero-content p { font-size: 1rem; }
 }
 
 @media (max-width: 768px) {
   .root{
     width: 380px;
   }
-  .hero { min-height: 80vh; }
+  .hero { min-height: 105vh; }
   .courses h2 { font-size: 1.8rem; }
   .card-buttons { flex-direction: column; }
   .about-hero-content { flex-direction: column; text-align: center; }

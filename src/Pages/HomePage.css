@@ -51,7 +51,7 @@ body {
   max-width: 600px;
   padding: 0 20px;
   margin-left: 10%;
-  
+
 }
 
 .hero-content h1 {
@@ -124,7 +124,7 @@ body {
 .about-hero-image img {
   width: 100%;
   border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
 .btn-primary {
@@ -174,7 +174,7 @@ body {
   background: #fff;
   padding: 20px;
   border-radius: 12px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   text-align: left;
   transition: transform 0.3s ease;
 }
@@ -326,7 +326,7 @@ body {
   width: 100%;
   max-width: 400px;
   border-radius: 12px;
-      margin-left: -101px;
+  margin-left: -101px;
 
 }
 
@@ -359,7 +359,7 @@ body {
   background: #fff;
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s ease;
   display: flex;
   flex-direction: column;
@@ -452,7 +452,7 @@ body {
   overflow: hidden;
   text-align: center;
   transition: transform 0.3s ease;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   padding: 20px;
 }
 
@@ -532,7 +532,7 @@ body {
 }
 
 .cta-overlay {
-  background: rgba(0,0,0,0.6);
+  background: rgba(0, 0, 0, 0.6);
   padding: 40px;
   border-radius: 12px;
   max-width: 800px;
@@ -637,7 +637,7 @@ body {
 
 .hover-lift:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 .hover-underline {
@@ -670,10 +670,12 @@ body {
     transform: scale(1);
     box-shadow: 0 0 0 0 rgba(229, 9, 20, 0.7);
   }
+
   70% {
     transform: scale(1.05);
     box-shadow: 0 0 0 10px rgba(229, 9, 20, 0);
   }
+
   100% {
     transform: scale(1);
     box-shadow: 0 0 0 0 rgba(229, 9, 20, 0);
@@ -687,7 +689,7 @@ body {
 
 .course-card:hover {
   transform: translateY(-10px) scale(1.02);
-  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
 }
 
 .learning-card {
@@ -696,7 +698,7 @@ body {
 
 .learning-card:hover {
   transform: translateY(-10px) scale(1.02);
-  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
 }
 
 .profile-card {
@@ -705,7 +707,7 @@ body {
 
 .profile-card:hover {
   transform: translateY(-10px) scale(1.02);
-  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
 }
 
 /* Smooth scrolling for the entire page */
@@ -714,13 +716,18 @@ html {
 }
 
 /* Enhanced button transitions */
-.btn-primary, .btn-outline, .btn-secondary, .cta-btn {
+.btn-primary,
+.btn-outline,
+.btn-secondary,
+.cta-btn {
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
 }
 
-.btn-primary:after,  .btn-secondary:after, .cta-btn:after {
+.btn-primary:after,
+.btn-secondary:after,
+.cta-btn:after {
   content: '';
   position: absolute;
   top: 50%;
@@ -733,7 +740,10 @@ html {
   transition: width 0.6s ease, height 0.6s ease;
 }
 
-.btn-primary:hover:after, .btn-outline:hover:after, .btn-secondary:hover:after, .cta-btn:hover:after {
+.btn-primary:hover:after,
+.btn-outline:hover:after,
+.btn-secondary:hover:after,
+.cta-btn:hover:after {
   width: 300px;
   height: 300px;
 }
@@ -749,11 +759,15 @@ html {
 }
 
 /* Image hover effects */
-.about-hero-image img, .leader-image img, .card-image img {
+.about-hero-image img,
+.leader-image img,
+.card-image img {
   transition: transform 0.5s ease;
 }
 
-.about-hero-image:hover img, .leader-image:hover img, .card-image:hover img {
+.about-hero-image:hover img,
+.leader-image:hover img,
+.card-image:hover img {
   transform: scale(1.05);
 }
 
@@ -762,34 +776,36 @@ html {
 @media (max-width: 768px) {
 
   .hero-content h1 {
-    font-size: 2.2rem;
+    font-size: 10px;
   }
- 
-  .course-grid{
-            margin-left: 40px;
+
+  .course-grid {
+    margin-left: 40px;
 
   }
-   .content-section {
-                flex-direction: column;
-            }
-            
-            .leader-image {
-                order: -1; /* Image comes first on mobile */
-                margin-bottom: 25px;
-            }
-            
-            h1 {
-                font-size: 2.2rem;
-            }
-            
-            .text-content h2 {
-                font-size: 1.8rem;
-            }
-  
+
+  .content-section {
+    flex-direction: column;
+  }
+
+  .leader-image {
+    order: -1;
+    /* Image comes first on mobile */
+    margin-bottom: 25px;
+  }
+
+  h1 {
+    font-size: 2.2rem;
+  }
+
+  .text-content h2 {
+    font-size: 1.8rem;
+  }
+
   .hero-content {
     margin-left: 5%;
   }
-  
+
   .about-hero-text h1,
   .courses h2,
   .leader-text h2,
@@ -798,35 +814,35 @@ html {
   .cta-section h2 {
     font-size: 1.8rem;
   }
-  
+
   .leader-points {
     grid-template-columns: 1fr;
   }
-  
+
   .cta-buttons {
     flex-direction: column;
     align-items: center;
   }
-  
+
   .cta-buttons button {
     width: 200px;
   }
 }
 
 @media (max-width: 480px) {
-    .root{
+  .root {
     width: fit-content;
   }
 
- 
+
   .hero-content h1 {
     font-size: 1.8rem;
   }
-  
+
   .card-buttons {
     flex-direction: column;
   }
-  
+
   .profile-card {
     padding: 15px;
   }
