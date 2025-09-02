@@ -3,6 +3,8 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* Verification Container */
@@ -18,7 +20,7 @@
 
 .verification-left {
   flex: 1;
-  min-width: 300px;
+  min-width: 280px; /* Adjusted for better mobile handling */
 }
 
 .title {
@@ -40,16 +42,18 @@
   display: flex;
   gap: 10px;
   margin-bottom: 20px;
+  flex-wrap: wrap; /* Allow buttons to wrap on small screens */
 }
 
 .role-btn {
-  padding: 10px 20px;
+  padding: 12px 20px; /* Increased for better touch targets */
   border: 1px solid #ccc;
   background: #f5f5f5;
   cursor: pointer;
   border-radius: 12px;
   font-size: 14px;
   transition: all 0.3s ease;
+  min-width: 120px; /* Ensure consistent sizing */
 }
 
 .role-btn.active {
@@ -70,23 +74,25 @@
 
 .input-box input {
   width: 100%;
-  padding: 12px 15px;
+  padding: 14px 15px; /* Slightly larger for mobile */
   border: 1px solid #bbb;
   border-radius: 5px;
-  font-size: 14px;
+  font-size: 16px; /* Larger font for better readability on mobile */
   box-sizing: border-box;
+  -webkit-appearance: none; /* Remove iOS shadow */
 }
 
 .verify-btn {
   background: #0d1b3d;
   color: white;
-  padding: 12px 20px;
+  padding: 16px 20px; /* Larger for better touch targets */
   border: none;
   border-radius: 12px;
   font-size: 16px;
   width: 100%;
   cursor: pointer;
   transition: background 0.3s ease;
+  min-height: 50px; /* Minimum touch target size */
 }
 
 .verify-btn:hover {
@@ -126,7 +132,7 @@
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  min-width: 300px;
+  min-width: 280px; /* Adjusted for better mobile handling */
 }
 
 .verification-right img {
@@ -207,84 +213,196 @@
 .steps-verify-btn {
   background: #0d1b3d;
   color: white;
-  padding: 12px 30px;
+  padding: 16px 30px; /* Larger for better touch targets */
   border: none;
   border-radius: 12px;
   font-size: 16px;
   cursor: pointer;
   transition: background 0.3s ease;
   margin-top: 20px;
+  min-height: 50px; /* Minimum touch target size */
 }
 
 .steps-verify-btn:hover {
   background: #142850;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .page-container {
-    padding: 0 15px;
-  }
-  
-  .verification-container {
-    padding: 20px 0;
-    flex-direction: column;
-  }
-  
-  .title {
-    font-size: 24px;
-    margin-top: 10px;
-  }
-  
-  .verification-right {
-    order: -1;
-    margin-bottom: 20px;
-  }
-  
-  .verification-right img {
-    max-width: 100%;
-  }
-  
-  .steps-container {
-    padding: 40px 0;
-  }
-  
-  .steps-title {
-    font-size: 24px;
-  }
-  
-  .steps-row {
-    gap: 20px;
-  }
-  
-  .step-box {
-    min-width: 100%;
-    margin-bottom: 20px;
-  }
+/* Certificate Preview */
+.certificate-preview {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  margin: 40px auto;
+  overflow: hidden; /* Prevent overflow issues */
 }
 
-@media (max-width: 480px) {
-  .role-buttons {
-    flex-direction: column;
-  }
-  
-  .role-btn {
-    width: 100%;
-    margin-bottom: 10px;
-  }
-  
-  .steps-title {
-    font-size: 22px;
-            margin-top: 127px;
-
-  }
-  
-  .steps-subtitle {
-    font-size: 14px;
-    margin-bottom: 30px;
-  }
+.certificate-bg {
+  width: 100%;
+  display: block;
 }
 
+.cert-text {
+  position: absolute;
+  color: #000;
+  font-family: "Times New Roman", serif;
+  font-weight: bold;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis; /* Handle long text */
+  max-width: 90%; /* Prevent overflow */
+}
+
+/* NAME */
+.cert-name {
+  top: 38%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 32px;
+  white-space: nowrap;
+  max-width: 80%;
+}
+
+/* COURSE */
+.cert-course {
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 22px;
+  color: #c80000;
+  white-space: nowrap;
+  max-width: 80%;
+}
+
+/* DATE */
+.cert-date {
+  bottom: 33.45%;
+  left: 63%;
+  transform: translateX(-50%);
+  font-size: 18px;
+  white-space: nowrap;
+}
+
+/* ID top-right */
+.cert-id {
+  top: 0%;
+  right: 5%;
+  font-size: 14px;
+  color: #444;
+  white-space: nowrap;
+}
+
+/* Verification Code bottom-left */
+.cert-code {
+  bottom: 0.5%;
+  left: 2%;
+  font-size: 14px;
+  color: #444;
+  white-space: nowrap;
+}
+
+/* 🔹 Download Buttons Container */
+.download-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+  flex-wrap: wrap; /* Allow wrapping on small screens */
+}
+
+/* 🔹 Download Button Style */
+.download-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  color: #fff;
+  padding: 14px 24px; /* Slightly larger for mobile */
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  min-height: 50px; /* Minimum touch target size */
+}
+
+.download-btn:hover {
+  background: linear-gradient(135deg, #0056b3, #003d80);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+}
+
+.download-btn:active {
+  transform: scale(0.97);
+}
+
+/* 🔹 Icon inside button */
+.download-btn svg {
+  font-size: 18px;
+}
+
+/* Popup Overlay */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+/* Popup Box */
+.popup-box {
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  width: 90%; /* Responsive width */
+  max-width: 350px; /* Maximum width */
+  text-align: center;
+  box-shadow: 0px 5px 20px rgba(0,0,0,0.3);
+  animation: scaleIn 0.3s ease-in-out;
+  margin: 20px; /* Prevent touching edges */
+}
+
+.popup-box h3 {
+  margin-bottom: 10px;
+  color: #d32f2f;
+  font-size: 20px;
+}
+
+.popup-box p {
+  font-size: 16px;
+  margin-bottom: 20px;
+  line-height: 1.4;
+}
+
+.popup-btn {
+  background: #d32f2f;
+  color: #fff;
+  border: none;
+  padding: 12px 24px; /* Larger for mobile */
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+  min-height: 44px; /* Minimum touch target size */
+  min-width: 120px;
+}
+
+.popup-btn:hover {
+  background: #b71c1c;
+}
+
+/* Animation */
+@keyframes scaleIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
 
 /* General hidden state */
 .slide-in-left,
@@ -385,4 +503,159 @@
   transition-delay: 0.6s;
 }
 
+/* Responsive Design */
+@media (max-width: 768px) {
+  .page-container {
+    padding: 0 15px;
+  }
+  
+  .verification-container {
+    padding: 20px 0;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .title {
+    font-size: 24px;
+    margin-top: 10px;
+  }
+  
+  .subtitle {
+    font-size: 15px;
+  }
+  
+  .verification-right {
+    order: -1;
+    margin-bottom: 20px;
+  }
+  
+  .verification-right img {
+    max-width: 100%;
+  }
+  
+  .steps-container {
+    padding: 40px 0;
+  }
+  
+  .steps-title {
+    font-size: 24px;
+    margin-top: 0; /* Fixed the 127px issue */
+  }
+  
+  .steps-subtitle {
+    font-size: 15px;
+    margin-bottom: 30px;
+  }
+  
+  .steps-row {
+    gap: 20px;
+  }
+  
+  .step-box {
+    min-width: 100%;
+    margin-bottom: 20px;
+    max-width: 100%;
+  }
+  
+  /* Certificate text adjustments for mobile */
+  .cert-name {
+    font-size: 24px;
+    max-width: 90%;
+  }
+  
+  .cert-course {
+    font-size: 18px;
+    max-width: 90%;
+  }
+  
+  .cert-date {
+    font-size: 14px;
+    left: 60%; /* Adjust position for mobile */
+  }
+  
+  .cert-id, .cert-code {
+    font-size: 8px;
+  }
+  
+  /* Animation adjustments for mobile performance */
+  .slide-in-left,
+  .slide-in-right,
+  .fade-in-up {
+    transition: all 0.5s ease; /* Faster animations on mobile */
+  }
+}
 
+@media (max-width: 480px) {
+  .role-buttons {
+    flex-direction: column;
+  }
+  
+  .role-btn {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  .steps-title {
+    font-size: 22px;
+  }
+  
+  .steps-subtitle {
+    font-size: 14px;
+    margin-bottom: 30px;
+  }
+  
+  .input-box input {
+    font-size: 16px; /* Prevent zoom on iOS */
+  }
+  
+  /* Further certificate text adjustments for very small screens */
+  .cert-name {
+    font-size: 16px;
+  }
+  
+  .cert-course {
+    font-size: 11px;
+  }
+  
+  .cert-date {
+   font-size: 9px;
+        bottom: 32.6%;
+        left: 67%;
+  }
+  
+  .download-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .download-btn {
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+  }
+  
+  /* Disable complex animations on low-powered devices */
+  @media (max-width: 360px) {
+    .bounce-in,
+    .rotate-in {
+      animation: none;
+      transition: opacity 0.5s ease;
+    }
+  }
+}
+
+/* Prevent horizontal scrolling on mobile */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* Improve touch highlighting */
+button, .role-btn, .download-btn {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Prevent text size adjustment on orientation change */
+html {
+  -webkit-text-size-adjust: 100%;
+}
