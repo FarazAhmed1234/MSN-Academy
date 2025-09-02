@@ -314,7 +314,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  background: linear-gradient(135deg, #007bff, #0056b3);
+  background: #0d1b3d;
   color: #fff;
   padding: 14px 24px; /* Slightly larger for mobile */
   font-size: 16px;
@@ -611,18 +611,18 @@
   /* Further certificate text adjustments for very small screens */
   .cert-name {
     font-size: 16px;
-            margin-top: -3px;
+            margin-top: -4px;
 
   }
   
   .cert-course {
-    font-size: 11px;
+    font-size: 8px;
   }
   
   .cert-date {
-   font-size: 9px;
-        bottom: 32.6%;
-        left: 67%;
+  bottom: 33.1%;
+        font-size: 7px;
+        left: 66%;
   }
   
   .download-buttons {
