@@ -611,6 +611,8 @@
   /* Further certificate text adjustments for very small screens */
   .cert-name {
     font-size: 16px;
+            margin-top: -3px;
+
   }
   
   .cert-course {
