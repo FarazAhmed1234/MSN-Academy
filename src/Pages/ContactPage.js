@@ -12,24 +12,24 @@ const ContactPage = () => {
     email: '',
     message: ''
   });
-  
+
   const [errors, setErrors] = useState({});
   const [showModal, setShowModal] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  
+
   // Create refs for animation elements
   const heroRef = useRef(null);
   const headerRef = useRef(null);
   const formRef = useRef(null);
   const infoRef = useRef(null);
-  
+
   // Set up intersection observers for animations
   useEffect(() => {
     const observerOptions = {
       threshold: 0.2,
       rootMargin: '0px 0px -50px 0px'
     };
-    
+
     const observerCallback = (entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -40,15 +40,15 @@ const ContactPage = () => {
         }
       });
     };
-    
+
     const observer = new IntersectionObserver(observerCallback, observerOptions);
-    
+
     // Observe all elements that need animation
     if (heroRef.current) observer.observe(heroRef.current);
     if (headerRef.current) observer.observe(headerRef.current);
     if (formRef.current) observer.observe(formRef.current);
     if (infoRef.current) observer.observe(infoRef.current);
-    
+
     // Cleanup
     return () => {
       observer.disconnect();
@@ -58,23 +58,23 @@ const ContactPage = () => {
   // Rest of the component remains the same...
   const validateForm = () => {
     const newErrors = {};
-    
+
     if (!formData.name.trim()) {
       newErrors.name = 'Name is required';
     }
-    
+
     if (!formData.email.trim()) {
       newErrors.email = 'Email is required';
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
       newErrors.email = 'Email is invalid';
     }
-    
+
     if (!formData.message.trim()) {
       newErrors.message = 'Message is required';
     } else if (formData.message.trim().length < 10) {
       newErrors.message = 'Message must be at least 10 characters';
     }
-    
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -85,7 +85,7 @@ const ContactPage = () => {
       ...prevState,
       [name]: value
     }));
-    
+
     // Clear error when user starts typing
     if (errors[name]) {
       setErrors(prev => ({
@@ -97,13 +97,13 @@ const ContactPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     if (validateForm()) {
       setIsSubmitting(true);
-      
+
       // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 1500));
-      
+
       console.log('Form submitted:', formData);
       setShowModal(true);
       setFormData({ name: '', email: '', message: '' });
@@ -148,7 +148,7 @@ const ContactPage = () => {
       >
         <div className="contact-hero-text">
           <p className="hero-subtitle">MSN Academy</p>
-          <h1 style={{color:"white"}}>Connect With Us</h1>
+          <h1 style={{ color: "white" }}>Connect With Us</h1>
           <p>
             Explore how to connect with us for support, collaboration, or any inquiries.
             We're here to help you grow.
@@ -208,8 +208,8 @@ const ContactPage = () => {
                   {errors.message && <span className="error-message">{errors.message}</span>}
                 </div>
 
-                <button 
-                  type="submit" 
+                <button
+                  type="submit"
                   className={`submit-btn ${isSubmitting ? 'submitting' : ''}`}
                   disabled={isSubmitting}
                 >
