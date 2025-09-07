@@ -50,6 +50,17 @@ const ErrorPopup = ({ message, onClose }) => {
   );
 };
 
+// 🔹 Format Date Function
+const formatDate = (dateString) => {
+  if (!dateString) return "";
+  const date = new Date(dateString);
+  return date.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+};
+
 const CertificateVerification = () => {
   const [certificateId, setCertificateId] = useState("");
   const [certificateData, setCertificateData] = useState(null);
@@ -233,9 +244,11 @@ const CertificateVerification = () => {
                 {certificateData.course_title}
               </div>
               <div className="cert-text cert-date">
-                {certificateData.issued_at}
+                {formatDate(certificateData.issued_at)}
               </div>
-              <div className="cert-text cert-id">ID: {certificateData.msn_id}</div>
+              <div className="cert-text cert-id">
+                ID: {certificateData.msn_id}
+              </div>
               <div className="cert-text cert-code">
                 Verification Code: {certificateData.code}
               </div>
@@ -270,7 +283,11 @@ const CertificateVerification = () => {
           <div className="steps-row">
             <div className="step-box slide-in-left">
               <div className={`step-icon-container ${certificateId ? "active" : ""}`}>
-                {certificateId ? <FaCheckSquare className="step-icon" /> : <FaRegSquare className="step-icon" />}
+                {certificateId ? (
+                  <FaCheckSquare className="step-icon" />
+                ) : (
+                  <FaRegSquare className="step-icon" />
+                )}
               </div>
               <h3>Enter Your ID</h3>
               <p>Provide the correct ID to verify your certificate.</p>
@@ -278,7 +295,11 @@ const CertificateVerification = () => {
 
             <div className="step-box slide-in-up">
               <div className={`step-icon-container ${certificateData ? "active" : ""}`}>
-                {certificateData ? <FaCheckSquare className="step-icon" /> : <FaRegSquare className="step-icon" />}
+                {certificateData ? (
+                  <FaCheckSquare className="step-icon" />
+                ) : (
+                  <FaRegSquare className="step-icon" />
+                )}
               </div>
               <h3>Verify</h3>
               <p>Click the button to check your certificate details.</p>
@@ -286,7 +307,11 @@ const CertificateVerification = () => {
 
             <div className="step-box slide-in-right">
               <div className={`step-icon-container ${certificateData ? "active" : ""}`}>
-                {certificateData ? <FaCheckSquare className="step-icon" /> : <FaRegSquare className="step-icon" />}
+                {certificateData ? (
+                  <FaCheckSquare className="step-icon" />
+                ) : (
+                  <FaRegSquare className="step-icon" />
+                )}
               </div>
               <h3>See Your Certificate</h3>
               <p>Your details and preview will appear instantly.</p>

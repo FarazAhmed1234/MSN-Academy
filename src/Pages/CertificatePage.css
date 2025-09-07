@@ -290,10 +290,10 @@
 
 /* DATE */
 .cert-date {
-  bottom: 33.45%;
-  left: 63%;
+  bottom: 34%;
+  left: 57.8%;
   transform: translateX(-50%);
-  font-size: 18px;
+  font-size: 14px;
   white-space: nowrap;
 }
 
@@ -656,9 +656,10 @@
   }
 
   .cert-date {
-    bottom: 33.1%;
-    font-size: 7px;
-    left: 66%;
+    bottom: 33.5%;
+    font-size: 6px;
+    left: 58.3%;
+
   }
 
   .download-buttons {
