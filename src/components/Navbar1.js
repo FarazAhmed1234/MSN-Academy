@@ -72,11 +72,11 @@ const Navbar = () => {
             className={({ isActive }) => (isActive ? "msn-active-link" : "")}
             onClick={() => setIsMenuOpen(false)}
           >
-           Feedback
+            Feedback
           </NavLink>
         </li>
 
-        
+
       </ul>
 
       {/* Desktop Buttons */}

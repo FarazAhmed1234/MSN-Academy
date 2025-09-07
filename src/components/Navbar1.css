@@ -188,6 +188,7 @@
     cursor: pointer;
     border: 2px solid;
     font-weight: 500;
+    width: 100px;
   }
 }
 
@@ -200,9 +201,9 @@
   }
 
   .msn-navbar .msn-logo img {
-           max-height: 135px;
-        display: block;
-        margin-top: 10px;
+    max-height: 135px;
+    display: block;
+    margin-top: 10px;
   }
 
   .msn-nav-menu {

@@ -105,11 +105,11 @@ const Footer = () => {
           <h3>Newsletter</h3>
           <p className="newsletter-desc">Join our newsletter for the latest updates and exclusive offers.</p>
           <form className="newsletter-form" onSubmit={handleSubmit}>
-            <input 
-              type="email" 
-              name="email" 
-              placeholder="Your Email" 
-              required 
+            <input
+              type="email"
+              name="email"
+              placeholder="Your Email"
+              required
               className="input-animate"
             />
             <button type="submit" className="join-button pulse-on-hover">Join</button>
@@ -150,8 +150,8 @@ const Footer = () => {
             <h3>Subscription Successful</h3>
             <p className="popup-message">{popupMessage}</p>
             <p className="popup-note">
-              You're now part of our community! 🎊  
-              Keep an eye on your inbox for exclusive updates, resources, and offers.  
+              You're now part of our community! 🎊
+              Keep an eye on your inbox for exclusive updates, resources, and offers.
               Don't forget to whitelist our email so you never miss out!
             </p>
             <div className="popup-actions">
