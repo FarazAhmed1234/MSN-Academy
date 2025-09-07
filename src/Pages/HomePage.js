@@ -141,7 +141,7 @@ const HomePage = () => {
 
       <section className="widthfull">
         {/* Hero Section */}
-        <section className="hero" style={{ backgroundImage: `url(${bgImage})`, height:"500px" }} >
+        <section className="hero" style={{ backgroundImage: `url(${bgImage})`, height: "500px" }} >
           <div className="hero-overlay">
             <div className="hero-content">
               <h1 data-animation="fade-in-down" style={{ color: "white" }}>Empowering Pakistan's <br /> Freelancers & Developers</h1>
@@ -195,7 +195,7 @@ const HomePage = () => {
                 </div>
                 <h3>Full Stack Graphic Designing with UI/UX</h3>
                 <p className="certificate">Professional Certificate</p>
-                
+
                 <div className="card-buttons">
                   <button className="btn-outline hover-lift">Enroll Now</button>
                   <button
@@ -214,10 +214,10 @@ const HomePage = () => {
                 </div>
                 <h3>Frontend Website Development</h3>
                 <p className="certificate">Professional Certificate</p>
-                
+
                 <div className="card-buttons">
                   <button className="btn-outline hover-lift">Enroll Now</button>
-  <button
+                  <button
                     className="btn-secondary hover-lift"
                     onClick={() => window.open("https://youtube.com/playlist?list=PLZbMaGH5VmjXJXvoMK4LHcZGq83pLAM1A&si=4D3rHMrbG0GIlmjc", "_blank")}
                   >
@@ -231,10 +231,10 @@ const HomePage = () => {
                 </div>
                 <h3>Mobile Application Development with Flutter</h3>
                 <p className="certificate">Professional Certificate</p>
-                
+
                 <div className="card-buttons">
                   <button className="btn-outline hover-lift">Enroll Now</button>
-  <button
+                  <button
                     className="btn-secondary hover-lift"
                     onClick={() => window.open("https://youtube.com/playlist?list=PLZbMaGH5VmjXJXvoMK4LHcZGq83pLAM1A&si=4D3rHMrbG0GIlmjc", "_blank")}
                   >

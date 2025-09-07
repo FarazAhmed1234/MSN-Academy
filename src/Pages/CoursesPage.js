@@ -34,12 +34,12 @@ const CoursesPage = () => {
     observerRef.current = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         const animationType = entry.target.getAttribute('data-animation') || 'fade-in';
-        
+
         if (entry.isIntersecting) {
           // Add animation class when element enters viewport
           entry.target.classList.add(animationType);
           entry.target.style.opacity = "1";
-          
+
           // Apply final transform based on animation type
           if (animationType.includes('slide')) {
             entry.target.style.transform = "translateX(0)";
@@ -53,7 +53,7 @@ const CoursesPage = () => {
           // This allows the animation to trigger again when scrolled back into view
           entry.target.classList.remove(animationType);
           entry.target.style.opacity = "0";
-          
+
           // Reset transform properties for slide animations
           if (animationType.includes('slide')) {
             if (animationType.includes('left')) {
@@ -62,12 +62,12 @@ const CoursesPage = () => {
               entry.target.style.transform = "translateX(50px)";
             }
           }
-          
+
           // Reset transform for zoom animations
           if (animationType.includes('zoom')) {
             entry.target.style.transform = "scale(0.9)";
           }
-          
+
           // Reset transform for fade up/down animations
           if (animationType.includes('up')) {
             entry.target.style.transform = "translateY(30px)";
@@ -84,7 +84,7 @@ const CoursesPage = () => {
       const animationType = el.getAttribute('data-animation');
       el.style.opacity = "0";
       el.style.transition = "opacity 0.5s ease, transform 0.8s ease";
-      
+
       if (animationType.includes('slide')) {
         if (animationType.includes('left')) {
           el.style.transform = "translateX(-50px)";
@@ -98,7 +98,7 @@ const CoursesPage = () => {
       } else if (animationType.includes('down')) {
         el.style.transform = "translateY(-30px)";
       }
-      
+
       observerRef.current.observe(el);
     });
 
@@ -145,9 +145,9 @@ const CoursesPage = () => {
           <h2 data-animation="fade-up">Explore Our Comprehensive Course Offerings for Aspiring Digital Professionals</h2>
           <div className="course-grid">
             {courses.map((course, index) => (
-              <div 
-                key={course.id} 
-                className="course-card" 
+              <div
+                key={course.id}
+                className="course-card"
                 data-animation="fade-up"
                 style={{ transitionDelay: `${index * 0.1}s` }}
               >
@@ -156,12 +156,12 @@ const CoursesPage = () => {
                 </div>
                 <h3>{course.name}</h3>
                 <p className="certificate">Professional Certificate</p>
-                
+
                 <div className="card-buttons">
                   <button className="btn-outline hover-lift" onClick={() => setSelectedCourse(course)}>
                     Enroll Now
                   </button>
-                  <button className="btn-secondary hover-lift"onClick={() => window.open("https://youtube.com/playlist?list=PLZbMaGH5VmjXJXvoMK4LHcZGq83pLAM1A&si=4D3rHMrbG0GIlmjc", "_blank")}>Watch demo</button>
+                  <button className="btn-secondary hover-lift" onClick={() => window.open("https://youtube.com/playlist?list=PLZbMaGH5VmjXJXvoMK4LHcZGq83pLAM1A&si=4D3rHMrbG0GIlmjc", "_blank")}>Watch demo</button>
 
                 </div>
               </div>

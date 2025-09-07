@@ -30,8 +30,13 @@ body {
 
 /* Animation Keyframes */
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes fadeInUp {
@@ -39,6 +44,7 @@ body {
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -50,6 +56,7 @@ body {
     opacity: 0;
     transform: translateY(-30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -61,6 +68,7 @@ body {
     opacity: 0;
     transform: translateX(-50px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -72,6 +80,7 @@ body {
     opacity: 0;
     transform: translateX(50px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -83,6 +92,7 @@ body {
     opacity: 0;
     transform: scale(0.9);
   }
+
   to {
     opacity: 1;
     transform: scale(1);
@@ -90,9 +100,20 @@ body {
 }
 
 @keyframes pulse {
-  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(229, 9, 20, 0.7); }
-  70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(229, 9, 20, 0); }
-  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(229, 9, 20, 0); }
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(229, 9, 20, 0.7);
+  }
+
+  70% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 10px rgba(229, 9, 20, 0);
+  }
+
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(229, 9, 20, 0);
+  }
 }
 
 /* Animation Classes */
@@ -131,7 +152,7 @@ body {
   background-size: cover;
   background-position: center;
   position: relative;
-      margin-top: -78px;
+  margin-top: -78px;
 
   color: white;
 }
@@ -216,7 +237,7 @@ body {
   background: #fff;
   padding: 20px;
   border-radius: 12px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   text-align: left;
   transition: transform 0.3s ease;
 }
@@ -254,8 +275,13 @@ body {
   color: var(--gray);
 }
 
-.star { color: gold; }
-.star.inactive { color: #ccc; }
+.star {
+  color: gold;
+}
+
+.star.inactive {
+  color: #ccc;
+}
 
 .card-buttons {
   display: flex;
@@ -278,6 +304,7 @@ body {
   background: transparent;
   color: var(--primary);
 }
+
 .btn-outline:hover {
   background: var(--primary);
   color: #fff;
@@ -288,6 +315,7 @@ body {
   color: #fff;
   border: none;
 }
+
 .btn-secondary:hover {
   background: #c92a36;
 }
@@ -329,7 +357,10 @@ body {
   text-align: center;
   transition: transform 0.3s ease;
 }
-.card:hover { transform: translateY(-8px); }
+
+.card:hover {
+  transform: translateY(-8px);
+}
 
 .card img {
   width: 100%;
@@ -356,12 +387,14 @@ body {
   flex: 1;
   min-width: 280px;
 }
+
 .about-hero-text h1 {
   font-size: 2rem;
   font-weight: bold;
   margin-bottom: 20px;
   color: var(--dark);
 }
+
 .about-hero-text p {
   font-size: 1rem;
   color: var(--gray);
@@ -373,10 +406,11 @@ body {
   flex: 1;
   min-width: 280px;
 }
+
 .about-hero-image img {
   width: 100%;
   border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
 /* ================= RESPONSIVE BREAKPOINTS ================= */
@@ -384,26 +418,60 @@ body {
   .hero-content {
     margin-left: 5%;
     text-align: center;
-    
+
   }
 }
 
 @media (max-width: 768px) {
-  .root{
+  .root {
     width: 380px;
   }
-  .hero { min-height: 105vh; }
-  .courses h2 { font-size: 1.8rem; }
-  .card-buttons { flex-direction: column; }
-  .about-hero-content { flex-direction: column; text-align: center; }
-  .about-hero-image { order: -1; }
-  .about-hero-text { order: 1; }
-  .course-grid { margin-left: 8px; }
+
+  .hero {
+    min-height: 105vh;
+  }
+
+  .courses h2 {
+    font-size: 1.8rem;
+  }
+
+  .card-buttons {
+    flex-direction: column;
+  }
+
+  .about-hero-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-hero-image {
+    order: -1;
+  }
+
+  .about-hero-text {
+    order: 1;
+  }
+
+  .course-grid {
+    margin-left: 8px;
+  }
 }
 
 @media (max-width: 480px) {
-  .hero-content h1 { font-size: 1.8rem; }
-  .hero-content p { font-size: 0.95rem; }
-  .cta-btn { width: 50%; }
-  .courses h2 { font-size: 1.5rem; margin-inline: 20px; }
+  .hero-content h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero-content p {
+    font-size: 0.95rem;
+  }
+
+  .cta-btn {
+    width: 50%;
+  }
+
+  .courses h2 {
+    font-size: 1.5rem;
+    margin-inline: 20px;
+  }
 }

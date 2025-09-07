@@ -125,19 +125,19 @@ body {
 }
 
 .play-button {
- 
- position: absolute;
-    top: 40%;
-    left: 51%;
-    transform: translate(-44%, -50%);
-    font-size: 23px;
-    border: none;
-    background: white;
-    border-radius: 50%;
-    padding: 6px 12px;
-    cursor: pointer;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-    transition: var(--transition);
+
+  position: absolute;
+  top: 40%;
+  left: 51%;
+  transform: translate(-44%, -50%);
+  font-size: 23px;
+  border: none;
+  background: white;
+  border-radius: 50%;
+  padding: 6px 12px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  transition: var(--transition);
 }
 
 .play-button:hover {
@@ -294,6 +294,7 @@ body {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -307,6 +308,7 @@ body {
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -318,6 +320,7 @@ body {
     opacity: 0;
     transform: translateY(-30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -329,6 +332,7 @@ body {
     opacity: 0;
     transform: translateX(-50px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -340,6 +344,7 @@ body {
     opacity: 0;
     transform: translateX(50px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -351,6 +356,7 @@ body {
     opacity: 0;
     transform: scale(0.9);
   }
+
   to {
     opacity: 1;
     transform: scale(1);
@@ -393,13 +399,13 @@ body {
     flex-direction: column;
     padding: 20px;
   }
-  
+
   .course-card1 {
     width: 100%;
     max-width: 400px;
     margin: 0 auto;
   }
-  
+
   .includes-list {
     gap: 80px;
   }
@@ -409,30 +415,30 @@ body {
   .course-container {
     padding: 15px;
   }
-  
+
   .course-info h1 {
     font-size: 28px;
   }
-  
+
   .includes-list {
     flex-direction: column;
     gap: 0;
   }
-  
+
   .details-content h1 {
     font-size: 1.8rem;
     margin-left: 0 !important;
   }
-  
+
   .details-content hr {
     margin-left: 0 !important;
     margin-right: 0 !important;
   }
-  
+
   .info-header h2 {
     font-size: 1.2rem;
   }
-  
+
   .info-content p {
     font-size: 1rem;
   }
@@ -442,35 +448,35 @@ body {
   .course-info h1 {
     font-size: 24px;
   }
-  
+
   .subtitle {
     font-size: 14px;
   }
-  
+
   .includes-box {
     padding: 15px;
   }
-  
+
   .includes-list li {
     font-size: 14px;
   }
-  
+
   .info-header {
     padding: 15px;
   }
-  
+
   .info-header h2 {
     font-size: 1.1rem;
   }
-  
+
   .info-content {
     padding: 0 15px;
   }
-  
+
   .info-content.open {
     padding: 10px 15px 15px;
   }
-  
+
   .btn {
     padding: 10px;
     font-size: 14px;
@@ -491,7 +497,7 @@ button:focus,
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-  
+
   [data-animation] {
     opacity: 1;
     transform: none !important;
