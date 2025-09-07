@@ -316,7 +316,7 @@
   gap: 8px;
   background: #0d1b3d;
   color: #fff;
-  padding: 14px 24px; /* Slightly larger for mobile */
+  padding: 14px 24px;
   font-size: 16px;
   font-weight: 600;
   border: none;
@@ -324,7 +324,7 @@
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-  min-height: 50px; /* Minimum touch target size */
+  min-height: 50px;
 }
 
 .download-btn:hover {
@@ -361,12 +361,12 @@
   background: #fff;
   padding: 25px;
   border-radius: 12px;
-  width: 90%; /* Responsive width */
-  max-width: 350px; /* Maximum width */
+  width: 90%;
+  max-width: 350px; 
   text-align: center;
   box-shadow: 0px 5px 20px rgba(0,0,0,0.3);
   animation: scaleIn 0.3s ease-in-out;
-  margin: 20px; /* Prevent touching edges */
+  margin: 20px; 
 }
 
 .popup-box h3 {
@@ -539,7 +539,7 @@
   
   .steps-title {
     font-size: 24px;
-    margin-top: 0; /* Fixed the 127px issue */
+    margin-top: 0; 
   }
   
   .steps-subtitle {
@@ -557,7 +557,6 @@
     max-width: 100%;
   }
   
-  /* Certificate text adjustments for mobile */
   .cert-name {
     font-size: 24px;
     max-width: 90%;
@@ -570,18 +569,17 @@
   
   .cert-date {
     font-size: 14px;
-    left: 60%; /* Adjust position for mobile */
+    left: 60%; 
   }
   
   .cert-id, .cert-code {
-    font-size: 8px;
+    font-size: 5px;
   }
   
-  /* Animation adjustments for mobile performance */
   .slide-in-left,
   .slide-in-right,
   .fade-in-up {
-    transition: all 0.5s ease; /* Faster animations on mobile */
+    transition: all 0.5s ease; 
   }
 }
 
@@ -605,10 +603,9 @@
   }
   
   .input-box input {
-    font-size: 16px; /* Prevent zoom on iOS */
+    font-size: 16px;
   }
   
-  /* Further certificate text adjustments for very small screens */
   .cert-name {
     font-size: 16px;
             margin-top: -4px;
@@ -636,7 +633,6 @@
     justify-content: center;
   }
   
-  /* Disable complex animations on low-powered devices */
   @media (max-width: 360px) {
     .bounce-in,
     .rotate-in {
@@ -646,18 +642,15 @@
   }
 }
 
-/* Prevent horizontal scrolling on mobile */
 html, body {
   overflow-x: hidden;
   width: 100%;
 }
 
-/* Improve touch highlighting */
 button, .role-btn, .download-btn {
   -webkit-tap-highlight-color: transparent;
 }
 
-/* Prevent text size adjustment on orientation change */
 html {
   -webkit-text-size-adjust: 100%;
 }
