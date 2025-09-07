@@ -10,7 +10,7 @@ import Testimonials from "./Pages/Testimonials";
 function App() {
   return (
     <Router>
-            <ScrollToTop />   
+      <ScrollToTop />
 
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -22,7 +22,7 @@ function App() {
     </Router>
   );
 
-  
+
 }
 
 export default App;

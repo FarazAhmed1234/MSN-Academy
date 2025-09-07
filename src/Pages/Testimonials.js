@@ -54,7 +54,6 @@ const defaultReviews = [
   },
 ];
 
-// ⭐ Rating stars
 function StarRow({ rating = 5, setRating }) {
   return (
     <div className="stars">
@@ -113,10 +112,10 @@ const Testimonials = ({
     setReviews([newReview, ...reviews]);
     setShowModal(false);
     setFormData({ name: "", role: "", rating: 5, text: "" });
-    
+
     // Show success message
     setShowSuccess(true);
-    
+
     // Hide success message after 3 seconds
     setTimeout(() => {
       setShowSuccess(false);
